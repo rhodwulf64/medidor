@@ -1,0 +1,388 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://webmedico.net/Scripts/moment.js"></script>
+    <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+    <style>
+body {
+            font: 8px "Tahoma" !important;
+            border:1px solid #{{ColorLines}}
+        
+        ;
+        border-radius: 8px;
+        border-collapse: separate;
+        border-spacing:10px 10px;
+    }
+    hr {
+        border-top-color: #{{ColorLines}}
+    ;
+    !important;
+}
+table,
+th,
+td {
+    border: 1px solid #CCCCCC;
+    font-size: 8px;
+    font-family: Tahoma;
+}
+td {
+    padding-top: 3px;
+    padding-left: 5px;
+    padding-right: 7px;
+    padding-bottom: 3px;
+}
+.titulo {
+    font-size: 10px !important;
+}
+span.underline {
+    border-bottom: 1px solid #CCCCCC;
+    display:block;
+}
+    </style>
+</head>
+
+<body class="container">
+    
+    <div width="100%" style="margin-top:10px;text-align: center">
+        <h5>
+            <strong>PROBLEMA ACTUAL</strong>
+        </h5>
+    </div>
+
+    <div>
+        <p style="margin-bottom:20px" class="titulo">
+            <strong>DATOS DEL PACIENTE:</strong>
+        </p>
+        <span>
+            <strong>NOMBRE:</strong> {{Paciente.FirstName}} {{Paciente.SecondFirstName}} {{Paciente.LastName}} {{Paciente.SecondLastName}}</span>
+        {{#if Paciente.PatientPhone}}
+        <span class="pull-right">
+            <strong>TELÉFONO:</strong> {{Paciente.PatientPhone}}</span>
+        {{/if}}
+        <br/>
+        <br/> {{#if Paciente.Birthday}}
+        <span>
+            <strong>FECHA DE NACIMIENTO:</strong> {{Paciente.Birthday}}</span>
+        {{/if}}
+        <span class="pull-right">
+            <strong>FECHA:&nbsp;</strong>{{Anamnesis.AnamnesisDate}}</span>
+        <br/>
+
+        <hr/>
+    </div>
+
+    <div>
+        <p style="margin-bottom:5px" class="titulo">
+            <strong>DATOS GENERALES:&nbsp;</strong>
+        </p>
+        <div class="col-xs-12">
+            <div class="col-xs-1">
+                <label>Fototipo:</label>
+            </div>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>I</span>&nbsp;({{#if Anamnesis.Piel_I}}
+            <span>✓</span>{{/if}}) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>II</span>&nbsp;({{#if Anamnesis.Piel_II}}
+            <span>✓</span>{{/if}}) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>III</span>&nbsp;({{#if Anamnesis.Piel_III}}
+            <span>✓</span>{{/if}}) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>IV</span>&nbsp;({{#if Anamnesis.Piel_IV}}
+            <span>✓</span>{{/if}}) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>V</span>&nbsp;({{#if Anamnesis.Piel_V}}
+            <span>✓</span>{{/if}}) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>VI</span>&nbsp;({{#if Anamnesis.Piel_VI}}
+            <span>✓</span>{{/if}})
+
+
+        </div>
+        <div class="col-xs-12">
+            <div class="col-xs-2">
+                <label>Biotipo:</label>
+            </div>
+            <div class="col-xs-2">
+                <span>Normal</span>&nbsp;( {{#if Anamnesis.PielNormal}}
+                <span>✓</span>{{/if}})
+
+            </div>
+            <div class="col-xs-2">
+                <span>Seca</span>&nbsp;( {{#if Anamnesis.PielSeca}}
+                <span>✓</span>{{/if}})
+            </div>
+            <div class="col-xs-2">
+                <span>Grasa</span>&nbsp;( {{#if Anamnesis.PielGrasa}}
+                <span>✓</span>{{/if}})
+            </div>
+            <div class="col-xs-2">
+                <span>Mixta</span>&nbsp;( {{#if Anamnesis.PielMixta}}
+                <span>✓</span>{{/if}})
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="col-xs-2">
+                <label>Sensibilidad:</label>
+            </div>
+            <div class="col-xs-2">
+                <span>Sensible</span>&nbsp;( {{#if Anamnesis.Sensible}}
+                <span>✓</span>{{/if}})
+
+            </div>
+            <div class="col-xs-2">
+                <span>Normal</span>&nbsp;( {{#if Anamnesis.Normal}}
+                <span>✓</span>{{/if}})
+            </div>
+            <div class="col-xs-2">
+                <span>Resistente</span>&nbsp;( {{#if Anamnesis.Resistente}}
+                <span>✓</span>{{/if}})
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="col-xs-2">
+                <label>Cicatrizacion:</label>
+            </div>
+            <div class="col-xs-4">
+                {{#if Anamnesis.Cicatrizacion}}
+                <span class="underline">{{Anamnesis.Cicatrizacion}}</span>{{/if}}
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div>
+        <p style="margin-bottom:5px" class="titulo">
+            <strong>PATOLOGÍAS PRINCIPALES:&nbsp;</strong>
+        </p>
+        <div class="col-xs-12">
+            <table>
+                <tbody>
+                    <tr>
+                        <td width="120px;" align="right">
+                            <Strong>Hipercromías:</Strong>
+                        </td>
+                        <td width="500px;" align="center">{{Anamnesis.DetalleHiperpigmentacion1}}</td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <Strong>Acné:</Strong>
+                        </td>
+                        <td align="center">{{Anamnesis.DetalleAcne1}}</td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <Strong>Cicatrices o Estrías:</Strong>
+                        </td>
+                        <td align="center">{{Anamnesis.DetalleCicatrizAcne1}}</td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <Strong>Telangiectasias:</Strong>
+                        </td>
+                        <td align="center">{{Anamnesis.DetalleTelangiectasias1}}</td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <Strong>Otras:</Strong>
+                        </td>
+                        <td align="center">{{Anamnesis.Otros}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+    </div>
+    <div style="margin-top:3px">
+        <p style="margin-bottom:5px" class="titulo">
+            <strong>ENFERMEDADES, CONDICIONES, HÁBITOS, ETC:&nbsp;</strong>
+        </p>
+        <div class="col-xs-12">
+            <table>
+                <tbody>
+                    <tr>
+                        <td width="320px;" align="left">
+                            <Strong>Herpes:</Strong>&nbsp;{{PersonalH.DetalleHerpes}}</td>
+                        <td width="320px;" align="left">
+                            <Strong>Alt. Hormonales:</Strong>&nbsp;{{PersonalH.DetalleAlteracionesHormonales}}</td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <Strong>Hepatitis:</Strong>&nbsp;{{PersonalH.DetalleHepatitis}}</td>
+                        <td align="left">
+                            <Strong>Ovario Poloquístico:</Strong>&nbsp;{{PersonalH.DetalleOvarioPoliquistico}}</td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <Strong>VIH:</Strong>&nbsp;{{PersonalH.DetalleVIH}}</td>
+                        <td align="left">
+                            <Strong>Embarazo / Anticonceptivos:</Strong>&nbsp;{{PersonalH.DetalleEmbarazo}}</td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <Strong>Alcohol:</Strong>&nbsp;{{PersonalH.DetalleAlcohol}}</td>
+                        <td align="left">
+                            <Strong>Marcapasos:</Strong>&nbsp;{{PersonalH.DetalleMarcapasos}}</td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <Strong>Drogas:</Strong>&nbsp;</td>
+                        <td align="left">
+                            <Strong>Fuma:</Strong>&nbsp;{{PersonalH.DetalleFuma}}</td>
+                        <tr>
+                            <td colspan="2" align="left">
+                                <Strong>Cirugías:</Strong>&nbsp;{{PersonalH.Cirugias}}</td>
+                            <tr/>
+                            <tr>
+                                <td colspan="2" align="left">
+                                    <Strong>Enfermedades Importantes:</Strong>&nbsp; {{#if PersonalH.Diabetes}}Diabetes:{{PersonalH.DetalleDiabetes}} ,{{/if}} {{#if PersonalH.Hipertension}}Hipertension:{{PersonalH.DetalleHipertension}} ,{{/if}} {{#if PersonalH.Cancer}}Cancer:{{PersonalH.DetalleCancer}}
+                                    ,{{/if}} {{#if PersonalH.Infecciosas}}Infecciosas:{{PersonalH.DetalleInfecciosas}} ,{{/if}} {{#if PersonalH.EnfermedadTiroidea}}EnfermedadTiroidea:{{PersonalH.DetalleEnfermedadTiroidea}} ,{{/if}} {{#if PersonalH.Patologicos}}Patologicos:{{PersonalH.Patologicos}}
+                                    ,{{/if}} {{#if PersonalH.Comentarios}}Comentarios:{{PersonalH.Comentarios}}{{/if}}
+                                </td>
+                                <tr/>
+                                <tr>
+                                    <td colspan="2" align="left">
+                                        <Strong>Enfermedades Familiares:</Strong>&nbsp; {{#if FamilyH.Diabetes}}Diabetes , {{/if}} {{#if FamilyH.Hipertension}}Hipertension ,{{/if}} {{#if FamilyH.Cancer}} Cancer ,{{/if}} {{#if FamilyH.CerebroVascular}} CerebroVascular
+                                        ,{{/if}} {{#if FamilyH.EnfermadadCardiaca}} EnfermadadCardiaca ,{{/if}} {{#if FamilyH.Comentarios}}{{FamilyH.Comentarios}}{{/if}}
+                                    </td>
+                                    <tr/>
+                                    <tr>
+                                        <tr>
+                                            <td colspan="2" align="left">
+                                                <Strong>Cosméticos de Uso Regular:</Strong>&nbsp; {{PersonalH.Perinatales}}</td>
+                                            <tr/>
+                                            <tr>
+                                                <td colspan="2" align="left">
+                                                    <Strong>Alergías:</Strong>&nbsp;{{PersonalH.Alergias}}</td>
+                                                <tr/>
+                                                <tr>
+                </tbody>
+            </table>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+    </div>
+    <div style="margin-top:1px">
+        <p style="margin-bottom:5px" class="titulo">
+            <strong>MEDICAMENTOS QUE TOMA O HA TOMADO&nbsp;</strong>
+        </p>
+        <div class="col-xs-12">
+            <table>
+                <tbody>
+                    <tr>
+                        <td width="320px;" align="left">
+                            <Strong>Aspirina / Anticoag:</Strong>&nbsp;{{PersonalH.DetalleAspirina}}</td>
+                        <td width="320px;" align="left">
+                            <Strong>Hidorcortisona Tópica:</Strong>&nbsp;{{PersonalH.DetalleHidrocortisonaTopica}}</td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <Strong>Isotretinoina:</Strong>&nbsp;{{PersonalH.DetalleIsotretinoina}}</td>
+                        <td align="left">
+                            <Strong>Corticoesteroides:</Strong>&nbsp;{{PersonalH.DetalleCorticoides}}</td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <Strong>Sales de Oro:</Strong>&nbsp;{{PersonalH.DetalleSalesOro}}</td>
+                        <td align="left">
+                            <Strong>Hierba de San Juan:</Strong>&nbsp;{{PersonalH.DetalleHierbaSanJuan}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="left">
+                            <Strong>Otros:</Strong>&nbsp;{{PersonalH.DetalleOtrosMedicamentos}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+    </div>
+    <div>
+        <p style="margin-bottom:5px" class="titulo">
+            <strong>TRATAMIENTOS PREVIOS&nbsp;</strong>
+        </p>
+        <div class="col-xs-12">
+            <div class="col-xs-4">
+                <label>Láser o IPL:</label>
+            </div>
+            <div class="col-xs-8">
+                {{#if PersonalH.DetalleLaser}}
+                <span class="underline">{{PersonalH.DetalleLaser}}</span>{{/if}}
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="col-xs-4">
+                <label>Dermoabrasiones o Peelings:</label>
+            </div>
+            <div class="col-xs-8">
+                {{#if PersonalH.DetallePeeling}}
+                <span class="underline">{{PersonalH.DetallePeeling}}</span>{{/if}}
+            </div>
+        </div>
+    </div>
+    <div>
+        <p style="margin-bottom:5px" class="titulo">
+            <strong>SUBJETIVO - ANAMNESIS&nbsp;</strong>
+        </p>
+        {{#if Anamnesis.Subjetivo}}
+        <span>{{Anamnesis.Subjetivo}}</span>
+        {{/if}}
+        <br/>
+        <br/>
+    </div>
+
+    <div>
+        <p class="titulo">
+            <strong>PLAN - TRATAMIENTO&nbsp;</strong>
+        </p>
+        {{#if Anamnesis.Plan}}
+        <span>{{Anamnesis.Plan}}</span>
+        {{/if}}
+    </div>
+ 
+   <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+    <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+</body>
+
+</html>
+
+<script>
+    var now = moment().format('DD/MM/YYYY hh:mm A')
+    document.getElementById("DatePrint").innerHTML = now;
+</script>

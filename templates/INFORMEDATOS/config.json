@@ -1,0 +1,15 @@
+{
+    "shortid": "Hycr-4CU-",
+    "recipe": "phantom-pdf",
+    "engine": "handlebars",
+    "modificationDate": {
+        "$$date": 1504555855713
+    },
+    "_id": "lI1sKIjJjr0na4Hc",
+    "data": {
+        "shortid": "r1CKiKIPg"
+    },
+    "phantom": {
+        "footerHeight": "3.5cm"
+    }
+}

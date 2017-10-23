@@ -1,0 +1,365 @@
+<html>
+    <head>    
+        <meta charset="utf-8" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+        <style>
+            body {
+                font: 11px "Tahoma" !important;
+            }
+            
+            hr {
+                border-top-color: #{{ColorLines}} !important;
+            }
+            
+            table.table-striped th, table.table-bordered th, table.table-striped td, table.table-bordered td {
+              font-size : 10px;
+              font-family : Tahoma;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <span>&nbsp;</span>
+        <div class="row">
+            <div class="col-xs-12" style="text-align:center">
+                <h5><b>FORMULARIO PARA ESTRATIFICACIÓN Y PREVENCIÓN DEL PIE DIABETICO</b></h5>
+            </div>
+            
+        </div>
+         <div width="100%">
+           <div class="col-xs-6"><h5><strong>NOMBRE:</strong>{{PatientName}} </h5></div>
+           <div class="col-xs-3"><h5><strong>EDAD:</strong>{{PatientName}} </h5></div>
+           <div class="col-xs-3"><h5><strong>FECHA:</strong>{{Podologia.PodologiaDate}} </h5></div>
+        </div>
+        <div width="100%">
+                <div><h5><strong>ANAMNESIS</strong></h5></div>
+                <hr>
+        </div>
+        <table style="width:100%;">
+         <tr>
+            <td style="width:35.6667%; border:solid 1px black;" colspan="2">Tiempo de diabetes {{TiempoDiabetes}}</td>
+            <td style="width::3.3333%; border:solid 1px black;text-align:center; font-size:14px;" colspan="12">
+               Tipo 2
+            </td>
+            <td style="width:35.6667%; border:solid 1px black;" colspan="2">Sangrado en medias o zapatos</td>
+             <td style="width:7.6667%; border:solid 1px black;" colspan="2">Sí  {{#if Podologia.SangradoNormal}} X {{/if}}</td>
+              <td style="width:7.6667%; border:solid 1px black;" colspan="2">No  {{#if Podologia.SangradoNormal}} {{else}} X {{/if}}</td>
+        </tr>
+           <tr>
+            <td style="width:35%; border:solid 1px black;" colspan="2">Historia de úlcera en los pies</td>
+           <td style="width:3.3333%; border:solid 1px black;text-align:center;padding-left:0px;padding-right:0px;" rowspan="15" valign="top">
+                {{#each Hemodialisis.HemodialisisSignosVitales}} {{Hora}}
+                <HR/> {{/each}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;padding-left:0px;padding-right:0px;" rowspan="15" valign="top">
+                {{#each Hemodialisis.HemodialisisSignosVitales}} {{TA}}
+                <HR/> {{/each}}
+            </td>
+           
+            <td style="width:35.6667%; border:solid 1px black;" colspan="2">Sangrado en medias o zapatos</td>
+             <td style="width:7.5%; border:solid 1px black;" colspan="2">Sí  {{#if Podologia.SangradoNormal}} X {{/if}}</td>
+              <td style="width:7.5%; border:solid 1px black;" colspan="2">No  {{#if Podologia.SangradoNormal}} {{else}} X {{/if}}</td>
+        </tr>
+        </table>
+        {{#if Soap}}
+            <div class="row">
+                
+                <div class="col-xs-12" style="padding-top:5px;margin-bottom:20px;">
+                    <div>
+                        <p><strong>FECHA DE CONSULTA: {{Soap.SoapDate}}</strong>
+                        </p>
+                    </div>
+                    <div class="row">
+                        {{#if Soap.FC}}
+                        <div class="col-xs-4">
+                            <label>FC:</label>
+                            <span>
+                                {{Soap.FC}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if Soap.FR}}
+                        <div class="col-xs-4">
+                            <label>FR:</label>
+                            <span>
+                                {{Soap.FR}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if Soap.SO2}}
+                        <div class="col-xs-4">
+                            <label>SO2:</label>
+                            <span>
+                                {{Soap.SO2}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if Soap.TA}}
+                        <div class="col-xs-4">
+                            <label>TA:</label>
+                            <span>
+                                {{Soap.TA}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if Soap.Temp}}
+                        <div class="col-xs-4">
+                            <label>Temperatura:</label>
+                            <span>
+                                {{Soap.Temp}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if Soap.Peso}}
+                        <div class="col-xs-4">
+                            <label>Peso (kg):</label>
+                            <span>
+                                {{Soap.Peso}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if Soap.Talla}}
+                        <div class="col-xs-4">
+                            <label>Talla:</label>
+                            <span>
+                                {{Soap.Talla}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if Soap.IMC}}
+                        <div class="col-xs-4">
+                            <label>IMC:</label>
+                            <span>
+                                {{Soap.IMC}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if Soap.PerimetroCefalico}}
+                        <div class="col-xs-4">
+                            <label>Perímetro Cefálico:</label>
+                            <span>
+                                {{Soap.PerimetroCefalico}}
+                            </span>
+                        </div>
+                        {{/if}}
+                    </div>
+                    
+                    {{#if Soap.Motivo}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>MOTIVO DE CONSULTA:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Soap.Motivo}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if Soap.Subjetivo}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>SUBJETIVO - ANAMNESIS:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Soap.Subjetivo}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if SoapObjetivo}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>OBJETIVO - EXAMEN FISICO:</label>
+                        <div class="col-md-12">
+
+                                                <label>
+                                                    Oído Derecho:
+                                                </label>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>Normal 
+                                                 {{#if SoapObjetivo.DetalleOidoDerecho}}
+                                                <input type="checkbox"/></label>&nbsp;&nbsp;
+                                                {{else}}
+                                                <input type="checkbox" checked="" /></label>&nbsp;&nbsp;
+                                                {{/if}}
+                                                <label>Anormal 
+                                                 {{#if SoapObjetivo.DetalleOidoDerecho}}
+                                                <input type="checkbox" checked=""/></label>
+                                                {{else}}
+                                                <input type="checkbox"/></label>
+                                                {{/if}}
+                                           <div>                                           
+                                                 <span style="white-space: pre-line">{{SoapObjetivo.DetalleOidoDerecho}}</span>
+                                          </div> 
+                                                <label>
+                                                    Oído Izquierdo:
+                                                </label>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <label>Normal 
+                                                 {{#if SoapObjetivo.DetalleOidoIzquierdo}}
+                                                <input type="checkbox"/></label>&nbsp;&nbsp;
+                                                {{else}}
+                                                <input type="checkbox" checked="" /></label>&nbsp;&nbsp;
+                                                {{/if}}
+                                                <label>Anormal 
+                                                 {{#if SoapObjetivo.DetalleOidoIzquierdo}}
+                                                <input type="checkbox" checked=""/></label>
+                                                {{else}}
+                                                <input type="checkbox"/></label>
+                                                {{/if}}
+                                           <div>                                           
+                                                 <span style="white-space: pre-line">{{SoapObjetivo.DetalleOidoIzquierdo}}</span>
+                                          </div> 
+                                          
+                                          <label>
+                                                Nariz:
+                                                </label>
+                                                &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>Normal 
+                                                 {{#if SoapObjetivo.DetalleNariz}}
+                                                <input type="checkbox"/></label>&nbsp;&nbsp;
+                                                {{else}}
+                                                <input type="checkbox" checked="" /></label>&nbsp;&nbsp;
+                                                {{/if}}
+                                                <label>Anormal 
+                                                 {{#if SoapObjetivo.DetalleNariz}}
+                                                <input type="checkbox" checked=""/></label>
+                                                {{else}}
+                                                <input type="checkbox"/></label>
+                                                {{/if}}
+                                           <div>                                           
+                                                 <span style="white-space: pre-line">{{SoapObjetivo.DetalleNariz}}</span>
+                                          </div> 
+                                          
+                                          <label>
+                                                OroFaringe:
+                                                </label>
+                                                 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                                <label>Normal 
+                                                 {{#if SoapObjetivo.DetalleFaringe}}
+                                                <input type="checkbox"/></label>&nbsp;&nbsp;
+                                                {{else}}
+                                                <input type="checkbox" checked="" /></label>&nbsp;&nbsp;
+                                                {{/if}}
+                                                <label>Anormal 
+                                                 {{#if SoapObjetivo.DetalleFaringe}}
+                                                <input type="checkbox" checked=""/></label>
+                                                {{else}}
+                                                <input type="checkbox"/></label>
+                                                {{/if}}
+                                           <div>                                           
+                                                 <span style="white-space: pre-line">{{SoapObjetivo.DetalleFaringe}}</span>
+                                          </div> 
+                                          
+                                          <label>
+                                                Cuello:
+                                                </label>
+                                                  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                                <label>Normal 
+                                                 {{#if SoapObjetivo.DetalleCuello}}
+                                                <input type="checkbox"/></label>&nbsp;&nbsp;
+                                                {{else}}
+                                                <input type="checkbox" checked="" /></label>&nbsp;&nbsp;
+                                                {{/if}}
+                                                <label>Anormal 
+                                                 {{#if SoapObjetivo.DetalleCuello}}
+                                                <input type="checkbox" checked=""/></label>
+                                                {{else}}
+                                                <input type="checkbox"/></label>
+                                                {{/if}}
+                                           <div>                                           
+                                                 <span style="white-space: pre-line">{{SoapObjetivo.DetalleCuello}}</span>
+                                          </div> 
+                                          
+                                          <label>
+                                                Pulmones:
+                                                </label>
+                                                  &emsp;&emsp;&ensp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>Normal 
+                                                 {{#if SoapObjetivo.DetallePulmones}}
+                                                <input type="checkbox"/></label>&nbsp;&nbsp;
+                                                {{else}}
+                                                <input type="checkbox" checked="" /></label>&nbsp;&nbsp;
+                                                {{/if}}
+                                                <label>Anormal 
+                                                 {{#if SoapObjetivo.DetallePulmones}}
+                                                <input type="checkbox" checked=""/></label>
+                                                {{else}}
+                                                <input type="checkbox"/></label>
+                                                {{/if}}
+                                           <div>                                           
+                                                 <span style="white-space: pre-line">{{SoapObjetivo.DetallePulmones}}</span>
+                                          </div> 
+                                          <label>
+                                                Detalle Otros:
+                                                </label>
+                                           <div>   
+                                            {{#if Soap.Objetivo}}
+                                            <span style="white-space: pre-line">{{Soap.Objetivo}}</span>
+                                             {{else}}
+                                                 <span style="white-space: pre-line">{{SoapObjetivo.DetalleOtros}}</span>
+                                            {{/if}}
+                                          </div> 
+                                          
+                                          </div>
+                    </div>
+                    {{/if}}
+                     
+                                            <div>   
+                                            {{#if Soap.Objetivo}}
+                                            <label>
+                                           OBJETIVO - EXAMEN FISICO:
+                                            </label>
+                                            <div>
+                                            <span style="white-space: pre-line">{{Soap.Objetivo}}</span>
+                   </div>
+                    {{/if}}
+                                          </div> 
+                    
+                    {{#if Soap.Analisis}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>ANALISIS - DIAGNOSTICO:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Soap.Analisis}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if Soap.CieCodes}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>CÓDIGO(S) CIE:</label>
+                        <div class="col-xs-offset-2">
+                            {{#each Soap.CieCodes}}
+                            <div><span style="white-space: pre-line"><strong>{{Codigo}} :</strong> {{Descriptor}}</span></div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/if}}    
+                    {{#if Soap.Plan}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>PLAN - TRATAMIENTO:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Soap.Plan}}</span>
+                        </div>
+                    </div>
+                    {{/if}}        
+                </div>
+                
+            </div>
+        {{/if}}
+        
+        {{#if DoctorCedula}}
+                   <div width="100%" style="text-align:center;position: absolute;left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; bottom:0;">
+                   
+                    <h4><strong><pre style="border: none;">{{DoctorCedula}}</pre></strong> </h4>
+                     
+                    </div>
+                    {{/if}}
+        <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+        <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+    </body>
+</html>
+
+<script>
+    var now = moment().locale("es").format('dddd D MMMM YYYY');
+    
+    document.getElementById("DatePrint").innerHTML = now;
+    
+</script>

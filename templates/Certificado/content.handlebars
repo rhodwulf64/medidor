@@ -1,0 +1,182 @@
+<html>
+    <head>    
+        <meta charset="utf-8" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+        <style>
+            body {
+                font: 11px "Tahoma" !important;
+                margin-right: 15px;
+                margin-left: 15px;
+            }
+            
+            hr {
+                margin-top:10px !important;
+                border-top-color: #{{ColorLines}} !important;
+            }
+            
+            p {
+                
+                font-size: 14px !important;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <span>&nbsp;</span>
+        <div width="100%" style="text-align: left;font-size:13px !important;margin-top:15mm">
+            <span>{{CertificadoCiudad}} <span id="DatePrint"></span></span>
+        </div>
+        
+        <div width="100%" style="margin-top:60px;text-align: center">
+            <h4><strong>CERTIFICADO MÉDICO</strong></h4>
+        </div>
+        
+        <div  width="100%" style="margin-top:60px;text-align:justify">
+            <p>El/La paciente <strong>{{Paciente.DisplayName}}</strong> con número de cédula 
+                <strong>{{Paciente.CedulaIdentidad}}</strong>, fue atendido(a) el día 
+                <strong><span id="atencion"></span></strong> con diagnóstico de: <br>
+                <br>
+                {{#if CertificadoDiagnostico}}
+                    <span style="white-space: pre-line;"><em>{{CertificadoDiagnostico}}</em></span><br><br>
+                {{/if}}
+                {{#each Soap.CieCodes}}
+                    <strong>CIE-10: </strong>{{Codigo}} - {{Descriptor}}<br>
+                {{/each}}
+            </p>
+            
+            {{#if Procedimiento}}
+                <br>
+                <p>
+                    El/La cual fue sometido al procedimiento: <strong>{{Procedimiento}}.</strong>
+                </p>
+            {{/if}}
+            
+            {{#if Reposo}}
+                <br>
+                <p>
+                    Por lo que es necesario reposo de  <strong><span id="DiasReposo"></span> día(s)</strong> 
+                    desde el <strong><span id="desde"></span></strong> hasta el <strong><span id="hasta"></span>.</strong>
+                </p>
+            {{/if}}
+            
+            {{#if Acompañante}}
+                <br>
+                <p>
+                    Acude acompañado de <strong>{{NombreAcompañante}}</strong> con cédula <strong>{{CedulaAcompañante}}</strong>, con el parentesco <strong>{{Parentesco}}.</strong>
+                </p>
+            {{/if}}
+            {{#if Comentarios}}
+                <br>
+                <p style="white-space: pre-line;">
+                    <strong>Comentarios: </strong>{{Comentarios}}
+                </p>
+            {{/if}}
+        </div>
+        <br></br>
+        <br></br>
+        <div width="100%" style="text-align: center;padding-top:20px">
+            <h4>ATENTAMENTE</h4>
+            <br></br>
+            <br></br>
+        </div>
+       <div width="100%" style="text-align: center;padding-top:5px">
+             <h4><strong><pre style="border: none;">{{DoctorCedula}}</pre></strong> </h4>
+        </div>
+        
+        <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+        <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+    </body>
+</html>
+
+<script>
+    var now = moment().locale("es").format('dddd D MMMM YYYY');
+    var dayweek = moment().locale("es").format('dddd');
+    var daynumber = moment().locale("es").format('D');
+    var mes = moment().locale("es").format('MMMM');
+    var year = moment().locale("es").format('YYYY');
+    
+    var Fatencion = '{{FechaAtencion}}';
+    var Fdesde = '{{ReposoDesde}}';
+    var Fhasta = '{{ReposoHasta}}';
+    
+    var dayweekA = moment(Fatencion, "DD/MM/YYYY").locale("es").format('dddd');
+    var daynumberA = moment(Fatencion, "DD/MM/YYYY").locale("es").format('D');
+    var mesA = moment(Fatencion, "DD/MM/YYYY").locale("es").format('MMMM');
+    var yearA = moment(Fatencion, "DD/MM/YYYY").locale("es").format('YYYY');
+    
+    var dayweekD = moment(Fdesde, "DD/MM/YYYY").locale("es").format('dddd');
+    var daynumberD = moment(Fdesde, "DD/MM/YYYY").locale("es").format('D');
+    var mesD = moment(Fdesde, "DD/MM/YYYY").locale("es").format('MMMM');
+    var yearD = moment(Fdesde, "DD/MM/YYYY").locale("es").format('YYYY');
+    
+    var dayweekH = moment(Fhasta, "DD/MM/YYYY").locale("es").format('dddd');
+    var daynumberH = moment(Fhasta, "DD/MM/YYYY").locale("es").format('D');
+    var mesH = moment(Fhasta, "DD/MM/YYYY").locale("es").format('MMMM');
+    var yearH = moment(Fhasta, "DD/MM/YYYY").locale("es").format('YYYY');
+
+    
+    function NumToStr(daynumber) {
+        
+        var diaStr = '';
+        
+        switch(daynumber)
+        {
+            case '1': diaStr = '(Uno)'; break;
+            case '2': diaStr = '(Dos)'; break;
+            case '3': diaStr = '(Tres)'; break;
+            case '4': diaStr = '(Cuatro)'; break;
+            case '5': diaStr = '(Cinco)'; break;
+            case '6': diaStr = '(Séis)'; break;
+            case '7': diaStr = '(Siete)'; break;
+            case '8': diaStr = '(Ocho)'; break;
+            case '9': diaStr = '(Nueve)'; break;
+            case '10': diaStr = '(Díez)'; break;
+            case '11': diaStr = '(Once)'; break;
+            case '12': diaStr = '(Doce)'; break;
+            case '13': diaStr = '(Trece)'; break;
+            case '14': diaStr = '(Catorce)'; break;
+            case '15': diaStr = '(Quince)'; break;
+            case '16': diaStr = '(Dieciséis)'; break;
+            case '17': diaStr = '(Diecisiete)'; break;
+            case '18': diaStr = '(Dieciocho)'; break;
+            case '19': diaStr = '(Diecinueve)'; break;
+            case '20': diaStr = '(Veinte)'; break;
+            case '21': diaStr = '(Veintiuno)'; break;
+            case '22': diaStr = '(Veintidos)'; break;
+            case '23': diaStr = '(Veintitres)'; break;
+            case '24': diaStr = '(Veinticuatro)'; break;
+            case '25': diaStr = '(Veinticinco)'; break;
+            case '26': diaStr = '(Veintiseis)'; break;
+            case '27': diaStr = '(Veintisiete)'; break;
+            case '28': diaStr = '(Veintiocho)'; break;
+            case '29': diaStr = '(Veintinueve)'; break;
+            case '30': diaStr = '(Treinta)'; break;
+            case '31': diaStr = '(Treinta y uno)'; break;
+            default: diaStr = '';
+        }
+        
+        return diaStr;
+    }
+    
+    //document.getElementById("DatePrint").innerHTML = dayweek + ' ' + daynumber + ' ' + ' de ' + mes + ' ' + year;
+    document.getElementById("DatePrint").innerHTML = dayweekA + ' ' + daynumberA + ' ' + NumToStr(daynumberA) + ' de ' + mesA + ' ' + yearA;
+    document.getElementById("atencion").innerHTML = dayweekA + ' ' + daynumberA + ' ' + NumToStr(daynumberA) + ' de ' + mesA + ' ' + yearA;
+    document.getElementById("desde").innerHTML = dayweekD + ' ' + daynumberD + ' ' + NumToStr(daynumberD) + ' de ' + mesD + ' ' + yearD;
+    document.getElementById("hasta").innerHTML = dayweekH + ' ' + daynumberH + ' ' + NumToStr(daynumberH) + ' de ' + mesH + ' ' + yearH;
+    
+    var reposo = {{Reposo}};
+    
+    if (reposo == true) {
+        var fechaInicio = '{{ReposoDesde}}';
+        var fechaFinal = '{{ReposoHasta}}';
+        
+        var finicio = moment(fechaInicio, "DD/MM/YYYY").format();
+        var ffinal = moment(fechaFinal, "DD/MM/YYYY").format();
+        
+        var dias = moment(ffinal).diff(finicio, 'days');
+        
+        document.getElementById("DiasReposo").innerHTML = dias + 1;
+    };
+</script>

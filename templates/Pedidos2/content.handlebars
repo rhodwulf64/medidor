@@ -1,0 +1,86 @@
+<html>
+    <head>    
+        <meta charset="utf-8" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+        <style>
+            body {
+                font: 11px "Tahoma" !important;
+            }
+            
+            hr {
+                border-top-color: #{{ColorLines}} !important;
+            }
+            
+            table.table-striped th, table.table-bordered th, table.table-striped td, table.table-bordered td {
+              font-size : 10px;
+              font-family : Tahoma;
+            }
+            
+            .firma {
+                text-align: center;
+                white-space:pre-line;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-xs-6">
+                <h4>Pedido de {{Pedido.TipodePedido}}</h4>
+            </div>
+            <div class="col-xs-6" style="padding-top:15px">
+                <span class="pull-right"><strong>{{Pedido.Ciudad}}&nbsp; <span id="DatePrint"></span></strong></span>
+            </div>
+        </div>
+        
+        <hr>
+        <div width="100%">
+                {{#unless PrinterHeader}}
+                <div><h5><strong>Doctor:</strong>&nbsp; {{DoctorName}} </h5></div>
+                {{/unless}}
+                <div><h5><strong>Paciente:</strong>&nbsp; {{PatientName}} </h5></div>
+                <hr>
+        </div>
+        
+        <div width="100%">
+            {{#if Pedido.Diagnostico}}
+                <span style="white-space: pre-line;"><strong>Diagnóstico:</strong> {{Pedido.Diagnostico}}</span><BR>
+            {{/if}}
+            {{#if Pedido.Observaciones}}
+                <span style="white-space: pre-line;"><strong>Observaciones:</strong> {{Pedido.Observaciones}}</span>
+            {{/if}}
+        </div>
+        <br>
+        
+        <div width="100%">
+            <span style="margin-top:20px !important"><strong>Detalles del Pedido:</strong></span>
+            
+            
+            <table id="table-detallepedidolast" style="margin-top: 20px;" class="table table-condensed table-striped table-bordered">
+                <thead id="titles">
+                    <tr>
+                        <th><span class="text">Nombre</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each Pedido.DetallesPedido}}
+                        <tr>
+                            <td>{{Producto}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        
+        <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+        <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+    </body>
+</html>
+
+<script>
+    var now = moment().locale("es").format('dddd D MMMM YYYY');
+    
+    document.getElementById("DatePrint").innerHTML = now;
+    
+</script>

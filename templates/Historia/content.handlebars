@@ -1,0 +1,1251 @@
+<html>
+    <head>    
+        <meta charset="utf-8" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+        <style>
+            body {
+                font: 10px "Tahoma" !important;
+            }
+            
+            hr {
+                border-top-color: #{{ColorLines}} !important;
+            }
+            table.table-striped th, table.table-bordered th, table.table-striped td, table.table-bordered td {
+              font-size : 10px;
+              font-family : Tahoma;
+            }
+            
+            .titulo {
+                font-size: 13px !important;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div width="100%" style="margin-top:60px;text-align: center">
+            <h4><strong>HISTORIA CLINICA</strong></h4>
+        </div>
+        
+        <div>
+            <p style="margin-bottom:20px" class="titulo"><strong>DATOS DEL PACIENTE:</strong></p>
+            <div style="float: left; width: 45%; text-align: justify;">
+            <p><strong>Nombre:</strong> {{Paciente.FirstName}} {{Paciente.SecondFirstName}} {{Paciente.LastName}} {{Paciente.SecondLastName}}</p>
+            {{#if Paciente.Birthday}}
+            <p><strong>Fecha de Naciemiento:</strong> {{Paciente.Birthday}}</p>
+            {{/if}}
+            {{#if Paciente.CedulaIdentidad}}
+            <p><strong>Cédula de Identidad:</strong> {{Paciente.CedulaIdentidad}}</p>
+            {{/if}}
+            {{#if Paciente.Sexo}}
+            <p><strong>Sexo:</strong> {{{Sexo Paciente.Sexo}}}</p>
+            {{/if}}
+            {{#if Paciente.Sangre}}
+            <p><strong>Tipo de Sangre:</strong> {{Paciente.Sangre}}</p>
+            {{/if}}
+            {{#if Paciente.PatientPhone}}
+            <p><strong>Teléfono:</strong> {{Paciente.PatientPhone}}</p>
+            {{/if}}
+            {{#if Paciente.PatientCellPhone}}
+            <p><strong>Teléfono Móvil:</strong> {{Paciente.PatientCellPhone}}</p>
+            {{/if}}
+            {{#if Paciente.PatientEmail}}
+            <p><strong>Correo electrónico:</strong> {{Paciente.PatientEmail}}</p>
+            {{/if}}
+            {{#if Paciente.LugarDeNacimiento}}
+            <p><strong>Lugar de nacimiento:</strong> {{Paciente.LugarDeNacimiento}}</p>
+            {{/if}}
+            </div>
+            <div>
+            {{#if Paciente.Address}}
+            <p><strong>Dirección:</strong> {{Paciente.Address}}</p>
+            {{/if}}
+            {{#if Paciente.City}}
+            <p><strong>Ciudad:</strong> {{Paciente.City}}</p>
+            {{/if}}
+            {{#if Paciente.Ocupacion}}
+            <p><strong>Ocupación:</strong> {{Paciente.Ocupacion}}</p>
+            {{/if}}
+            {{#if Paciente.MaritalStatus}}
+            <p><strong>Estado Civil:</strong> {{Paciente.MaritalStatus}}</p>
+            {{/if}}
+            {{#if Paciente.PatientType}}
+            <p><strong>Tipo de Paciente:</strong> {{Paciente.PatientType}}</p>
+            {{/if}}
+            {{#if Paciente.Seguro}}
+            <p><strong>Seguro Medico:</strong> {{Paciente.Seguro}}</p>
+            {{/if}}
+            {{#if Paciente.Referencia}}
+            <p><strong>Referencia:</strong> {{Paciente.Referencia}}</p>
+            {{/if}}
+            {{#if Paciente.RegisterDate}}
+            <p><strong>Fecha de registro:</strong> {{Paciente.RegisterDate}}</p>
+            {{/if}}
+            {{#if Paciente.AdditionalNotes}}
+            <p><strong>Datos Adicionales:</strong> <span style="white-space: pre-line;">{{Paciente.AdditionalNotes}}<span style="white-space: pre-line;"></p>
+            {{/if}}
+            </div>
+            <hr>
+        </div>
+        
+        <div class="row">
+            <div class="form-group col-xs-12" >
+                <label class="control-label titulo" style="margin-bottom:20px">ANTECEDENTES PERSONALES:</label>
+                <div class="row">
+                    {{#if Personales.Diabetes}}
+                        <div class="col-xs-4">
+                            <label>Diabetes:</label>
+                            <div class="col-md-12">
+                                <span style="white-space: pre-line;">{{Personales.DetalleDiabetes}}</span>
+                            </div>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if Personales.Hipertension}}
+                        <div class="col-xs-4">
+                            <label>Hipertensión:</label>
+                            <div class="col-md-12">
+                                <span style="white-space: pre-line;">{{Personales.DetalleHipertension}}</span>
+                            </div>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if Personales.Cancer}}
+                        <div class="col-xs-4">
+                            <label>Cancer:</label>
+                            <div class="col-md-12">
+                                <span style="white-space: pre-line;">{{Personales.DetalleCancer}}</span>
+                            </div>
+                        </div>
+                    {{/if}}
+    
+                    {{#if Personales.Fuma}}
+                        <div class="col-xs-4">
+                            <label>Fuma:</label>
+                            <div class="col-md-12">
+                                <span style="white-space: pre-line;">{{Personales.DetalleFuma}}</span>
+                            </div>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if Personales.Alcohol}}
+                        <div class="col-xs-4">
+                            <label>Alcohol:</label>
+                            <div class="col-md-12">
+                                <span style="white-space: pre-line;">{{Personales.DetalleAlcohol}}</span>
+                            </div>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if Personales.Infecciosas}}
+                        <div class="col-xs-4">
+                            <label>Enf. Infecciosas:</label>
+                            <div class="col-md-12">
+                                <span style="white-space: pre-line;">{{Personales.DetalleInfecciosas}}</span>
+                            </div>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if Personales.EnfermedadTiroidea}}
+                        <div class="col-xs-4">
+                            <label>Enf. Tiroidea:</label>
+                            <div class="col-md-12">
+                                <span style="white-space: pre-line;">{{Personales.DetalleEnfermedadTiroidea}}</span>
+                            </div>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if Personales.Asma}}
+                        <div class="col-xs-4">
+                            <label>Asma:</label>
+                            <div class="col-md-12">
+                                <span style="white-space: pre-line;">{{Personales.DetalleAsma}}</span>
+                            </div>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if Personales.RinitisAlergica}}
+                        <div class="col-xs-4">
+                            <label>Rinitis Alérgica:</label>
+                            <div class="col-md-12">
+                                <span style="white-space: pre-line;">{{Personales.DetalleRinitisAlergica}}</span>
+                            </div>
+                        </div>
+                    {{/if}}
+                </div>
+    
+                <div class="row">
+                    {{#if Personales.Patologicos}}
+                        <div class="col-xs-12" style="margin-top:10px;">
+                            <label>
+                                Antecedentes Patológicos:
+                            </label>
+                        </div>
+                        <div class="col-xs-12">
+                            <span style="white-space: pre-line;">{{Personales.Patologicos}}</span>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if Personales.Medicamentos}}
+                        <div class="col-xs-12" style="margin-top:10px;">
+                            <label>
+                                Medicamentos:
+                            </label>
+                        </div>
+                        <div class="col-xs-12">
+                            <span style="white-space: pre-line;">{{Personales.Medicamentos}}</span>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if Personales.Habitos}}
+                        <div class="col-xs-12" style="margin-top:10px;">
+                            <label>
+                                Hábitos:
+                            </label>
+                        </div>
+                        <div class="col-xs-12">
+                            <span style="white-space: pre-line;">{{Personales.Habitos}}</span>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if Personales.Alergias}}
+                        <div class="col-xs-12" style="margin-top:10px;">
+                            <label>
+                                Alergias y Alertas:
+                            </label>
+                        </div>
+                        <div class="col-xs-12">
+                            <span style="white-space: pre-line;">{{Personales.Alergias}}</span>
+                        </div>
+                    {{/if}}
+                    
+                    {{#if Personales.Cirugias}}
+                        <div class="col-xs-12"style="margin-top:10px;">
+                            <label>
+                                Cirugías:
+                            </label>
+                        </div>
+                        <div class="col-xs-12">
+                            <span style="white-space: pre-line;">{{Personales.Cirugias}}</span>
+                        </div>
+                    {{/if}}
+                    
+                </div>
+                <hr>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12">
+                <label class="control-label titulo"  style="margin-bottom:20px">ANTECEDENTES FAMILIARES:</label>
+                <div width="row">
+                    {{#if Familiares.Diabetes}}
+                    <div class="col-xs-4">
+                        <span><strong>Diabetes:</strong> Si</span>
+                    </div>
+                    {{/if}}
+                    
+                    {{#if Familiares.Hipertension}}
+                    <div class="col-xs-4">
+                        <span><strong>Hipertensión:</strong> Si</span>
+                    </div>
+                    {{/if}}
+
+                    {{#if Familiares.Cancer}}
+                    <div class="col-xs-4">
+                        <span><strong>Cancer:</strong> Si</span>
+                    </div>
+                    {{/if}}
+                    
+                    {{#if Familiares.CerebroVascular}}
+                    <div class="col-xs-4">
+                        <span><strong>Accidente Cerebrovascular:</strong> Si</span>
+                    </div>
+                    {{/if}}
+                    
+                    {{#if Familiares.EnfermadadCardiaca}}
+                    <div class="col-xs-4">
+                        <span><strong>Enfermedad Cardíaca:</strong> Si</span>
+                    </div>
+                    {{/if}}
+                    
+                    {{#if Familiares.Hipoacusia}}
+                    <div class="col-xs-4">
+                        <span><strong>Hipoacusia:</strong> Si</span>
+                    </div>
+                    {{/if}}
+                    
+                    
+                    <div class="row">
+                        {{#if Familiares.Comentarios}}
+                            <span class="col-xs-12"><strong>Comentarios:</strong></span>
+                            <div class="col-xs-10" style="margin-top:10px !important;">
+                                <span style="white-space: pre-line;">{{Familiares.Comentarios}}</span>
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        
+        {{#if Gineco}}
+            <div class="row">
+                <div class="col-xs-12">
+                     <p style="margin-bottom:20px" class="titulo"><strong>ANTECEDENTES GINECÓLOGICOS:</strong></p>
+                </div>
+                
+                {{#if Gineco.Menarquia}}
+                    <div class="col-xs-3" style="margin-bottom:10px;">
+                        <label>Menarquia:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Gineco.Menarquia}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Gineco.IVidaSexual}}
+                    <div class="col-xs-3" style="margin-bottom:10px;">
+                        <label>Inicio Vida Sexual:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{IGineco.VidaSexual}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Gineco.ParejasSexuales}}
+                    <div class="col-xs-3" style="margin-bottom:10px;">
+                        <label>Parejas Sexuales:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Gineco.ParejasSexuales}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Gineco.PlanificacionFamiliar}}
+                    <div class="col-xs-3" style="margin-bottom:10px;">
+                        <label>Planificación Familiar:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Gineco.PlanificacionFamiliar}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Gineco.ETS}}
+                    <div class="col-xs-3" style="margin-bottom:10px;">
+                        <label>ETS:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Gineco.ETS}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Gineco.CiclosMenstruales}}
+                    <div class="col-xs-3" style="margin-bottom:10px;">
+                        <label>Ciclos Menstruales:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Gineco.CiclosMenstruales}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Gineco.Papanicolao}}
+                    <div class="col-xs-3" style="margin-bottom:10px;">
+                        <label>Papanicolau:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Gineco.Papanicolao}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Gineco.Mamografia}}
+                    <div class="col-xs-3" style="margin-bottom:10px;">
+                        <label>Mamografía:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Gineco.Mamografia}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-6">
+                    {{#if Gineco.Menopausia}}
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="control-label">Menopausia:</label>
+                                        <div class="form-group">
+                                            <span style="white-space: pre-line;">{{Gineco.Menopausia}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="control-label">Densitometría:</label>
+                                        <div class="form-group">
+                                            <span style="white-space: pre-line;">{{Gineco.Densitometria}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                </div>
+                
+                {{#if Gineco.Colposcopia}}
+                    <div class="col-xs-6">
+                    <label class="control-label">Colposcopía</label>
+                    <div class="form-group">
+                        <span style="white-space: pre-line;">{{Gineco.Colposcopia}}</span>
+                    </div>
+                </div>
+                {{/if}}
+                
+            </div>
+
+            <div class="row">
+                {{#if Gineco.HPV}}
+                    <div class="col-xs-3">
+                        <label class="control-label">HPV:</label>
+                        <div class="form-group">
+                            <span style="white-space: pre-line;">{{Gineco.HPV}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Gineco.Patologias}}
+                    <div class="col-xs-9">
+                        <label class="control-label">Patologías:</label>
+                        <div class="form-group">
+                            <span style="white-space: pre-line;">{{Gineco.Patologias}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+            
+            <div style="margin-top:30px;margin-bottom:20px">
+                <span  ><strong>OBSTÉTRICOS:</strong></spand>
+            </div>
+            
+
+            <div class="row">
+                {{#if Gineco.Gestas}}
+                    <div class="col-xs-2">
+                        <label class="control-label">Gestas:</label>
+                        <div class="form-group">
+                            <span style="white-space: pre-line;">{{Gineco.Gestas}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if Gineco.Partos}}
+                    <div class="col-xs-2">
+                        <label class="control-label">Partos:</label>
+                        <div class="form-group">
+                            <span style="white-space: pre-line;">{{Gineco.Partos}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if Gineco.Abortos}}
+                    <div class="col-xs-2">
+                        <label class="control-label">Abortos:</label>
+                        <div class="form-group">
+                            <span style="white-space: pre-line;">{{Gineco.Abortos}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if Gineco.Cesareas}}
+                    <div class="col-xs-2">
+                        <label class="control-label">Cesáreas:</label>
+                        <div class="form-group">
+                            <span style="white-space: pre-line;">{{Gineco.Cesareas}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if Gineco.HijosVivos}}
+                    <div class="col-xs-2">
+                        <label class="control-label">Hijos Vivos:</label>
+                        <div class="form-group">
+                            <span style="white-space: pre-line;">{{Gineco.HijosVivos}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if Gineco.FUM}}
+                    <div class="col-xs-2">
+                        <label class="control-label">FUM:</label>
+                        <div class="form-group">
+                            <span style="white-space: pre-line;">{{Gineco.FUM}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+
+            <div class="row">
+                {{#if Gineco.EmbarazosPrevios}}
+                    <div class="form-group col-xs-12">
+                        <label class="control-label">Embarazos Previos:</label>
+                        <div class="form-group">
+                            <span style="white-space: pre-line;">{{Gineco.EmbarazosPrevios}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+    
+            <div class="row">
+                {{#if Gineco.Embarazo}}
+                    <div class="col-xs-12">
+                        <label class="control-label">Embarazo:</label><span> Si</span>
+                    </div>
+                {{/if}}
+            </div>
+            <hr>
+        {{/if}}
+        
+        {{#if Embarazos}}
+        
+            <div>
+                <p style="margin-bottom:20px" class="titulo"><strong>EMBARAZO(S):</strong></p>
+            </div>
+            
+            {{#each Embarazos}}
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><strong>DETALLES DEL EMBARAZO
+                            {{#if Activo}}
+                                ACTUAL
+                            {{/if}}</strong>
+                        </p>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label class="control-label">Fecha Probable Parto</label>
+                            <div class="col-xs-12">
+                                <span style="white-space: pre-line;">{{FechaPP}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label class="control-label">Fecha de Parto</label>
+                            <div class="col-xs-12">
+                                <span style="white-space: pre-line;">{{FechaParto}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xs-12"> 
+                        <p style="margin-top:10px;margin-bottom:10px" ><strong>Controles de Embarazo:</strong></p>
+                        <table class="table table-striped">
+                            
+                                <tr>
+                                    <th>#</th>
+                                    <th>Fecha</th>
+                                    <th>Edad Gestacional</th>
+                                    <th>Control</th>
+                                </tr>
+                            
+                            
+                                {{#each Controles}}
+                                    <tr>
+                                        <td>{{ControlNum}}</td>
+                                        <td>{{FechaControl}}</td>
+                                        <td>{{EdadGestacional}}</td>
+                                        <td>
+                                            <div class="row">
+                                                {{#if TA}}
+                                                    <div class="col-xs-2">
+                                                        <label>TA:&nbsp;</label>{{TA}}
+                                                    </div>
+                                                {{/if}}
+                                                {{#if FC}}
+                                                    <div class="col-xs-2">
+                                                        <label>FC:&nbsp;</label>{{FC}}
+                                                    </div>
+                                                {{/if}}
+                                                {{#if AFU}}
+                                                    <div class="col-xs-2">
+                                                        <label>AFU:&nbsp;</label>{{AFU}}
+                                                    </div>
+                                                {{/if}}
+                                                {{#if EMO}}
+                                                    <div class="col-xs-2">
+                                                        <label>EMO:&nbsp;</label>{{EMO}}
+                                                    </div>
+                                                {{/if}}
+                                                {{#if Talla}}
+                                                    <div class="col-xs-2">
+                                                        <label>T:&nbsp;</label>{{Talla}}
+                                                    </div>
+                                                {{/if}}
+                                                {{#if Peso}}
+                                                    <div class="col-xs-2">
+                                                        <label>Peso:&nbsp;</label>{{Peso}}
+                                                    </div>
+                                                {{/if}}    
+                                            </div>
+                                            <div class="row">
+                                                {{#if Subjetivo}}
+                                                    <div class="col-xs-12">
+                                                        <label>Subjetivo:&nbsp;</label><span style="white-space: pre-line;">{{Subjetivo}}</span>
+                                                    </div>
+                                                {{/if}}
+                                                {{#if Objetivo}}
+                                                    <div class="col-xs-12">
+                                                        <label>Objetivo:&nbsp;</label><span style="white-space: pre-line;">{{Objetivo}}</span>
+                                                    </div>
+                                                {{/if}}
+                                                {{#if Analisis}}
+                                                    <div class="col-xs-12">
+                                                        <label>Análisis:&nbsp;</label><span style="white-space: pre-line;">{{Analisis}}</span>
+                                                    </div>
+                                                {{/if}}
+                                                {{#if Plan}}
+                                                    <div class="col-xs-12">
+                                                        <label>Plan:&nbsp;</label><span style="white-space: pre-line;">{{Plan}}</span>
+                                                    </div>
+                                                {{/if}}
+                                                {{#if Observaciones}}
+                                                    <div class="col-xs-12">
+                                                        <label>Observaciones:&nbsp;</label><span style="white-space: pre-line;">{{Observaciones}}</span>
+                                                    </div>
+                                                {{/if}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                            
+                        </table>
+                    </div>
+                </div>
+            {{/each}}
+            <hr>
+        {{/if}}
+        
+        
+        {{#if Pediatria}}
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="titulo"><strong>ANTECEDENTES PEDIATRÍCOS</strong></p>
+                </div>
+                
+                <div class="col-xs-12">
+                    <p style="padding-top:5px;margin-top:20px;margin-bottom:20px;border-top:1px solid lightgrey;"><strong>PRENATALES:</strong></p>
+                </div>
+                <div class="row col-xs-12">
+                    <div class="col-xs-4"><label for="Controles">Controles: &nbsp;&nbsp;</label>{{Pediatria.Controles}}</div>
+                    <div class="col-xs-4"><label for="Controles">Ecos: &nbsp;&nbsp;</label>{{Pediatria.Ecos}}</div>
+                    <div class="col-xs-4"><label for="Controles">Embarazo: &nbsp;&nbsp;</label>{{Pediatria.Embarazo}}</div>
+                </div>
+                <div class="row col-xs-12">
+                    <div class="col-xs-3 form-group">
+                        <label for="NombrePadre">Padre: &nbsp;&nbsp;</label>
+                        <div><span>{{Pediatria.NombrePadre}}</span></div>
+                    </div>
+                    <div class="col-xs-3 form-group">
+                        <label class="control-label">Fecha de Nacimiento:&nbsp;&nbsp;</label>
+                        <div><span>{{Pediatria.FechaNacimientoPadre}}</span></div>
+                    </div>
+                    <div class="col-xs-3 form-group">
+                        <label for="TipoSangrePadreID">Tipo Sangre:&nbsp;&nbsp;</label>
+                        <div><span>{{Pediatria.TipoSangrePadre}}</span></div>
+                    </div>
+                    <div class="col-xs-3 form-group">
+                        <label for="ProfesionPadre">Profesion:</label>
+                        <div><span>{{Pediatria.ProfesionPadre}}</span></div>
+                    </div>
+                </div>
+                <div class="row col-xs-12">
+                    <div class="col-xs-3 form-group">
+                        <label for="NombrePadre">Madre: &nbsp;&nbsp;</label>
+                        <div><span>{{Pediatria.NombreMadre}}</span></div>
+                    </div>
+                    <div class="col-xs-3 form-group">
+                        <label class="control-label">Fecha de Nacimiento:&nbsp;&nbsp;</label>
+                        <div><span>{{Pediatria.FechaNacimientoMadre}}</span></div>
+                    </div>
+                    <div class="col-xs-3 form-group">
+                        <label for="TipoSangrePadreID">Tipo Sangre:&nbsp;&nbsp;</label>
+                        <div><span>{{Pediatria.TipoSangreMadre}}</span></div>
+                    </div>
+                    <div class="col-xs-3 form-group">
+                        <label for="ProfesionPadre">Profesion:</label>
+                        <div><span>{{Pediatria.ProfesionMadre}}</span></div>
+                    </div>
+                </div>
+                {{#if Pediatria.ComplicacionesPreNatales}}
+                <div class="col-xs-12">
+                    <label for="ComplicacionesPreNatales">Complicaciones:</label>
+                    <div><span style="white-space: pre-line;">{{Pediatria.ComplicacionesPreNatales}}</span></div>
+                </div>
+                {{/if}}
+                {{#if Pediatria.ComentariosPreNatales}}
+                <div class="col-xs-12">
+                    <label for="ComentariosPreNatales">Comentarios:</label>
+                    <div><span style="white-space: pre-line;">{{Pediatria.ComentariosPreNatales}}</span></div>
+                </div>
+                {{/if}}
+                
+                <div class="col-xs-12">
+                    <p style="padding-top:5px;margin-top:15px;margin-bottom:15px;border-top:1px solid lightgrey;"><strong>PERINATALES:</strong></p>
+                </div>
+                <div class="row col-xs-12">
+                    {{#if Pediatria.TipoParto}}
+                <div class="col-xs-3 form-group">
+                    <label for="TipoParto">Tipo de Parto:</label>
+                    <div><span style="white-space: pre-line;">{{Pediatria.TipoParto}}</span></div>
+                </div>
+                {{/if}}
+                {{#if Pediatria.VacunaHepatitisB}}
+                <div class="col-xs-3 form-group">
+                    <label for="TipoParto">Vacuna Hepatitis B:</label>
+                    <div><span style="white-space: pre-line;">{{Pediatria.VacunaHepatitisB}}</span></div>
+                </div>
+                {{/if}}
+                {{#if Pediatria.RPBF}}
+                <div class="col-xs-2 form-group">
+                    <label for="TipoParto">RPBF:</label>
+                    <span>Si.</span>
+                </div>
+                {{/if}}
+                {{#if Pediatria.ProfilaxisOptica}}
+                <div class="col-xs-2 form-group">
+                    <label for="TipoParto">Profilaxis Optica:</label>
+                    <span>Si.</span>
+                </div>
+                {{/if}}
+                {{#if Pediatria.VitaminaK}}
+                <div class="col-xs-2 form-group">
+                    <label for="TipoParto">Vitamina K:</label>
+                    <span>Si.</span>
+                </div>
+                {{/if}}
+                </div>
+                
+                <div class="row col-xs-12">
+                    {{#if Pediatria.Peso}}
+                    <div class="col-xs-2 form-group">
+                        <label for="TipoParto">Peso:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.Peso}}</span></div>
+                    </div>
+                    {{/if}}
+                    {{#if Pediatria.Talla}}
+                    <div class="col-xs-2 form-group">
+                        <label for="TipoParto">Talla:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.Talla}}</span></div>
+                    </div>
+                    {{/if}}
+                    {{#if Pediatria.PerimetroCefalico}}
+                    <div class="col-xs-2 form-group">
+                        <label for="TipoParto">Perímetro Cefálico:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.PerimetroCefalico}}</span></div>
+                    </div>
+                    {{/if}}
+                    {{#if Pediatria.PerimetroAbdominal}}
+                    <div class="col-xs-2 form-group">
+                        <label for="TipoParto">Perímetro Abdominal:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.PerimetroAbdominal}}</span></div>
+                    </div>
+                    {{/if}}
+                    {{#if Pediatria.Capurro}}
+                    <div class="col-xs-2 form-group">
+                        <label for="TipoParto">Capurro:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.Capurro}}</span></div>
+                    </div>
+                    {{/if}}
+                    {{#if Pediatria.Capurro}}
+                    <div class="col-xs-2 form-group">
+                        <label for="TipoParto">APGAR 1-5:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.APGAR1}}</span>&nbsp;&nbsp;<span style="white-space: pre-line;">{{Pediatria.APGAR5}}</span></div>
+                    </div>
+                    {{/if}}
+                </div>
+                
+                {{#if Pediatria.ComplicacionesPeriNatales}}
+                    <div class="col-xs-12">
+                        <label for="TipoParto">Complicaciones Perinatales:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.ComplicacionesPeriNatales}}</span></div>
+                    </div>
+                {{/if}}
+                
+                <div class="col-xs-12">
+                    <p style="padding-top:5px;margin-top:20px;margin-bottom:20px;border-top:1px solid lightgrey;"><strong>POSTNATALES:</strong></p>
+                </div>
+                
+                {{#if Pediatria.ComentariosEscalaDenver}}
+                    <div class="col-xs-12" style="margin-bottom:15px;">
+                        <label for="TipoParto">Alimentación:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.ComentariosEscalaDenver}}</span></div>
+                    </div>
+                {{/if}}
+                
+                {{#if Pediatria.ValoracionNeurologico}}
+                    <div class="col-xs-12" style="margin-bottom:15px;">
+                        <label for="TipoParto">Valoración Neurológica:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.ValoracionNeurologico}}</span></div>
+                    </div>
+                {{/if}}
+                
+                {{#if Pediatria.TamisajeMetabolico}}
+                    <div class="col-xs-12" style="margin-bottom:15px;">
+                        <label for="TipoParto">Tamizaje Metabólico y Auditivo:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.TamisajeMetabolico}}</span></div>
+                    </div>
+                {{/if}}
+                {{#if Pediatria.ComentariosPostNatales}}
+                    <div class="col-xs-12" style="margin-bottom:15px;">
+                        <label for="TipoParto">Comentarios:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.ComentariosPostNatales}}</span></div>
+                    </div>
+                {{/if}}
+            </div>
+            <hr>
+        {{/if}}
+        
+        
+        {{#if Vacunas}}
+            <div class="row">
+                <div class="col-xs-12" style="margin-bottom:20px">
+                    <p class="titulo"><strong>VACUNACIÓN</strong></p>
+                </div>
+                
+                <div class="col-xs-12">
+                    <table id="table-vacunas" class="table table-condensed table-striped table-bordered">                    
+                        <tr>
+                            <th><span class="text">Vacuna</span></th>
+                            <th><span class="text">Dosis</span></th>
+                            <th><span class="text">Edad Recomendada</span></th>
+                            <th><span class="text">Aplicada</span></th>
+                            <th><span class="text">Fecha Vacunación</span></th>
+                            <th><span class="text">Lote</span></th>
+                            <th><span class="text">Quién Aplica</span></th>
+                            <th><span class="text">RAM</span></th>
+                        </tr>
+                        {{#each Vacunas}}
+                            {{#if Aplicada}}
+                            <tr>
+                                <td>{{Vacuna}}</td>
+                                <td>{{Dosis}}</td>
+                                <td>{{EdadRecomendada}}</td>
+                                <td>{{#if Aplicada}}Si{{else}}No{{/if}}</td>
+                                <td>{{FechaVacuna}}</td>
+                                <td>{{Lote}}</td>
+                                <td>{{QuienAplica}}</td>
+                                <td>{{RAM}}</td>
+                            </tr>
+                            {{/if}}
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+            <hr>
+        {{/if}}
+        
+        {{#if Soaps}}
+            <div class="row">
+                <div class="col-xs-12" style="margin-bottom:20px;">
+                    <p class="titulo"><strong>ENFERMEDADES (CONSULTAS)</strong></p>
+                </div>
+                
+                {{#each Soaps}}
+                <div class="col-xs-12" style="padding-top:5px;margin-bottom:20px;border-top:1px solid lightgrey;">
+                    <div>
+                        <p><strong>FECHA DE CONSULTA: {{SoapDate}}</strong>
+                        </p>
+                    </div>
+                    <div class="row">
+                        {{#if FC}}
+                        <div class="col-xs-4">
+                            <label>FC:</label>
+                            <span>
+                                {{FC}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if FR}}
+                        <div class="col-xs-4">
+                            <label>FR:</label>
+                            <span>
+                                {{FR}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if SO2}}
+                        <div class="col-xs-4">
+                            <label>SO2:</label>
+                            <span>
+                                {{SO2}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if TA}}
+                        <div class="col-xs-4">
+                            <label>TA:</label>
+                            <span>
+                                {{TA}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if Temp}}
+                        <div class="col-xs-4">
+                            <label>Temperatura:</label>
+                            <span>
+                                {{Temp}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if Peso}}
+                        <div class="col-xs-4">
+                            <label>Peso (kg):</label>
+                            <span>
+                                {{Peso}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if Talla}}
+                        <div class="col-xs-4">
+                            <label>Talla:</label>
+                            <span>
+                                {{Talla}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if IMC}}
+                        <div class="col-xs-4">
+                            <label>IMC:</label>
+                            <span>
+                                {{IMC}}
+                            </span>
+                        </div>
+                        {{/if}}
+                        {{#if PerimetroCefalico}}
+                        <div class="col-xs-4">
+                            <label>Perímetro Cefálico:</label>
+                            <span>
+                                {{PerimetroCefalico}}
+                            </span>
+                        </div>
+                        {{/if}}
+                    </div>
+                    
+                    {{#if Motivo}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>MOTIVO DE CONSULTA:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Motivo}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if Subjetivo}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>SUBJETIVO - ANAMNESIS:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Subjetivo}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if Objetivo}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>OBJETIVO - EXAMEN FISICO:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Objetivo}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if Analisis}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>ANALISIS - DIAGNOSTICO:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Analisis}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if CieCodes}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>CÓDIGO(S) CIE:</label>
+                        <div class="col-xs-offset-2">
+                            {{#each CieCodes}}
+                            <div><span style="white-space: pre-line"><strong>{{Codigo}} :</strong> {{Descriptor}}</span></div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/if}}    
+                    {{#if Plan}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>PLAN - TRATAMIENTO:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Plan}}</span>
+                        </div>
+                    </div>
+                    {{/if}}        
+                </div>
+                {{/each}}
+                
+            </div>
+            <hr>
+        {{/if}}
+        
+        
+        {{#if Fisicos}}
+            <div class="row">
+                <div class="col-xs-12" style="margin-bottom:20px;">
+                    <p class="titulo"><strong>EXÁMENES FÍSICOS</strong></p>
+                </div>
+                
+                {{#each Fisicos}}
+                <div class="col-xs-12" style="padding-top:5px;margin-bottom:20px;border-top:1px solid lightgrey;">
+                    <div>
+                        <p><strong>FECHA DE REVISÓN: {{CheckupDate}}</strong>
+                        </p>
+                    </div>
+                    
+                    {{#if Cabeza}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>Cabeza-Cuello:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Cabeza}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if Torax}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>Tórax:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Torax}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if Abdomen}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>Abdomen:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Abdomen}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if InguinoGenital}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>Inguino-Genital::</label>
+                        <div>
+                            <span style="white-space: pre-line">{{InguinoGenital}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if Muscular}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>Muscular:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Muscular}}</span>
+                        </div>
+                    </div>
+                    {{/if}}    
+                    {{#if Neurologico}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>Neurológico:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Neurologico}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if Review}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>Notas:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Review}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                {{/each}}
+                
+            </div>
+            <hr>
+        {{/if}}
+        
+        
+        {{#if Revisiones}}
+            <div class="row">
+                <div class="col-xs-12" style="margin-bottom:20px;">
+                    <p class="titulo"><strong>EXÁMENES COMPLEMENTARIOS</strong></p>
+                </div>
+                
+                
+                
+                {{#each Revisiones}}
+                <div class="col-xs-12" style="padding-top:5px;margin-bottom:20px;border-top:1px solid lightgrey;">
+                    <div>
+                        <p><strong>TIPO DE ESPECIALIDAD: {{Examenes.0.Especialidad}}</strong></p>
+                        <p><strong>FECHA DE REVISÓN: {{Fecha}}</strong></p>
+                    </div>
+                    
+                    {{#if OidoDerecho500}}
+                       <div class="row col-xs-12" style="margin-top:10px;">
+                            <label>Audiometria Tonal Liminar:</label>
+                             
+                             <table class="table table-bordered">
+                                <tr>
+                                    <th></th>
+                                    <th>500 Hz</th>
+                                    <th>1000 Hz</th>
+                                    <th>2000 Hz</th>
+                                    <th>3000 Hz</th>
+                                    <th>Promedios Tonos Puros (PPT)</th>
+                                    <th>% de Pérdida (%P)</th>
+                                </tr>
+                                <tr>
+                                    <th>Oido Derecho</th>
+                                    <td>{{OidoDerecho500}}</td>
+                                    <td>{{OidoDerecho1000}}</td>
+                                    <td>{{OidoDerecho2000}}</td>
+                                    <td>{{OidoDerecho3000}}</td>
+                                    <td>{{OidoDerechoPPT}}</td>
+                                    <td>{{OidoDerechoPerdida}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Oido Izquierdo</th>
+                                    <td>{{OidoIzquierdo500}}</td>
+                                    <td>{{OidoIzquierdo1000}}</td>
+                                    <td>{{OidoIzquierdo2000}}</td>
+                                    <td>{{OidoIzquierdo3000}}</td>
+                                    <td>{{OidoIzquierdoPPT}}</td>
+                                    <td>{{OidoIzquierdoPerdida}}</td>
+                                </tr>
+                            </table>
+                        </div> 
+                    {{/if}}
+                    
+                    {{#each Examenes}}      
+                        <div class="row col-xs-12" style="margin-top:10px;">
+                            <label>{{TipoExamenNombre}}:</label>
+                            <div>
+                                <span style="white-space: pre-line">{{Resultado}}</span>
+                             </div>
+                        </div>
+                    {{/each}}
+                    
+                </div>
+                {{/each}}
+                
+            </div>
+            <hr>
+        {{/if}}
+        
+        
+        {{#if Laboratorios}}
+            <div class="row">
+                <div class="col-xs-12" style="margin-bottom:20px;">
+                    <p class="titulo"><strong>ANÁLISIS DE LABORATORIO</strong></p>
+                </div>
+                
+                {{#each Laboratorios}}
+                <div class="col-xs-12" style="padding-top:5px;margin-bottom:20px;border-top:1px solid lightgrey;">
+                    <div>
+                        <p><strong>FECHA DEL ANÁLISIS: {{LabDate}}</strong>
+                        </p>
+                    </div>
+                    
+                    {{#if Resultados}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>Resultados:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Resultados}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if Analisis}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>Análisis:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Analisis}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                {{/each}}
+                
+            </div>
+            <hr>
+        {{/if}}
+        
+        
+        {{#if Procedimientos}}
+            <div class="row">
+                <div class="col-xs-12" style="margin-bottom:20px;">
+                    <p class="titulo"><strong>PROCEDIMIENTOS</strong></p>
+                </div>
+                
+                {{#each Procedimientos}}
+                <div class="col-xs-12" style="padding-top:5px;margin-bottom:20px;border-top:1px solid lightgrey;">
+                    <div>
+                        <p><strong>FECHA DEL PROCEDIMIENTO: {{ProcedimientoDate}}</strong>
+                        </p>
+                    </div>
+                    
+                    {{#if Descripcion}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>Descripción:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Descripcion}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                {{/each}}
+                
+            </div>
+            <hr>
+        {{/if}}
+        
+        {{#if Recetas}}
+            <div class="row">
+                <div class="col-xs-12" style="margin-bottom:20px;">
+                    <p class="titulo"><strong>RECETAS</strong></p>
+                </div>
+                
+                {{#each Recetas}}
+                <div class="col-xs-12" style="padding-top:5px;margin-bottom:20px;border-top:1px solid lightgrey;">
+                    <div>
+                        <p><strong>FECHA DEL RECETA: {{PrescriptionDate}}</strong>
+                        </p>
+                    </div>
+                    
+                    {{#if Prescriptions}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>Prescripciones:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Prescriptions}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if Indications}}        
+                    <div class="row col-xs-12" style="margin-top:10px;">
+                        <label>Indicaciones:</label>
+                        <div>
+                            <span style="white-space: pre-line">{{Indications}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                {{/each}}
+                
+            </div>
+            <hr>
+        {{/if}}
+         <div width="100%" style="text-align: center;padding-top:25px">
+             <h4><strong><pre style="border: none;">{{DoctorCedula}}</pre></strong> </h4>
+            
+        </div>
+       
+        <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+        <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+    </body>
+</html>
+
+<script>
+    var now = moment().format('DD/MM/YYYY hh:mm A')
+
+    document.getElementById("DatePrint").innerHTML = now;
+    
+    
+    
+    
+</script>

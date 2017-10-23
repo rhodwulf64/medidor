@@ -1,0 +1,168 @@
+<html>
+    <head>    
+        <meta charset="utf-8" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+        <style>
+            body {
+                font: 11px "Tahoma" !important;
+            }
+            
+            hr {
+                border-top-color: #{{ColorLines}} !important;
+            }
+            
+            table.table-striped th, table.table-striped td {
+              font-size : 11px;
+              font-family : Tahoma;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <span>&nbsp;</span>
+    
+        <div class="row">
+            <div class="col-xs-7">
+                {{#unless PrinterHeader}}
+                    <div><h5><strong>Doctor:</strong>&nbsp; {{DoctorName}} </h5></div>
+                {{/unless}}
+                <div><h5><strong>Paciente:</strong>&nbsp; {{PatientName}} </h5></div>
+                
+            </div>
+            <div class="col-xs-5" style="padding-top:15px">
+                <span class="pull-right"><strong>Fecha:&nbsp; <span id="DatePrint"></span></strong></span>
+            </div>
+            
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12">
+                <h5>Detalles de Embarazo 
+                    {{#if Activo}}
+                        Actual
+                    {{else}}
+                        Anterior
+                    {{/if}}
+                </h5>
+            </div>
+        </div>
+        <hr>
+        
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label class="control-label">Fecha Probable Parto</label>
+                    <div class="col-xs-12">
+                        <span style="white-space: pre-line;">{{FechaPP}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label class="control-label">Fecha de Parto</label>
+                    <div class="col-xs-12">
+                        <span style="white-space: pre-line;">{{FechaParto}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h4>Controles de Embarazo</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Fecha</th>
+                        <th>Edad Gestacional</th>
+                        <th>Control</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each Controles}}
+                        <tr>
+                            <td>{{ControlNum}}</td>
+                            <td>{{FechaControl}}</td>
+                            <td>{{EdadGestacional}}</td>
+                            <td>
+                                <div class="row">
+                                    {{#if TA}}
+                                        <div class="col-xs-2">
+                                            <label>TA:&nbsp;</label>{{TA}}
+                                        </div>
+                                    {{/if}}
+                                    {{#if FC}}
+                                        <div class="col-xs-2">
+                                            <label>FC:&nbsp;</label>{{FC}}
+                                        </div>
+                                    {{/if}}
+                                    {{#if AFU}}
+                                        <div class="col-xs-2">
+                                            <label>AFU:&nbsp;</label>{{AFU}}
+                                        </div>
+                                    {{/if}}
+                                    {{#if EMO}}
+                                        <div class="col-xs-2">
+                                            <label>EMO:&nbsp;</label>{{EMO}}
+                                        </div>
+                                    {{/if}}
+                                    {{#if Talla}}
+                                        <div class="col-xs-2">
+                                            <label>T:&nbsp;</label>{{Talla}}
+                                        </div>
+                                    {{/if}}
+                                    {{#if Peso}}
+                                        <div class="col-xs-2">
+                                            <label>Peso:&nbsp;</label>{{Peso}}
+                                        </div>
+                                    {{/if}}    
+                                </div>
+                                <div class="row">
+                                    {{#if Subjetivo}}
+                                        <div class="col-xs-12">
+                                            <label>Subjetivo:&nbsp;</label><span style="white-space: pre-line;">{{Subjetivo}}</span>
+                                        </div>
+                                    {{/if}}
+                                    {{#if Objetivo}}
+                                        <div class="col-xs-12">
+                                            <label>Objetivo:&nbsp;</label><span style="white-space: pre-line;">{{Objetivo}}</span>
+                                        </div>
+                                    {{/if}}
+                                    {{#if Analisis}}
+                                        <div class="col-xs-12">
+                                            <label>Análisis:&nbsp;</label><span style="white-space: pre-line;">{{Analisis}}</span>
+                                        </div>
+                                    {{/if}}
+                                    {{#if Plan}}
+                                        <div class="col-xs-12">
+                                            <label>Plan:&nbsp;</label><span style="white-space: pre-line;">{{Plan}}</span>
+                                        </div>
+                                    {{/if}}
+                                    {{#if Observaciones}}
+                                        <div class="col-xs-12">
+                                            <label>Observaciones:&nbsp;</label><span style="white-space: pre-line;">{{Observaciones}}</span>
+                                        </div>
+                                    {{/if}}
+                                </div>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+       <div width="100%" style="text-align: center;padding-top:5px">
+             <h4><strong><pre style="border: none;">{{DoctorCedula}}</pre></strong> </h4>
+        </div>
+        <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+        <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+    </body>
+</html>
+
+<script>
+    var now = moment().format('DD/MM/YYYY hh:mm A')
+
+    document.getElementById("DatePrint").innerHTML = now;
+</script>

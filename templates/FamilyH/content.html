@@ -1,0 +1,131 @@
+<html>
+    <head>	
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <link href="https://webmedico.net/Content/bootstrap.css" rel="stylesheet" />
+        <link href="https://webmedico.net/Content/Site.css" rel="stylesheet" />
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+    </head>
+    <body>
+        <style>
+            body {
+                background-color: #FAFAFA;
+                font: 11px "Tahoma" !important;
+                padding: 0;
+            }
+        
+            label {
+                font-size: 11px !important;
+            }
+            
+            hr {
+                border-top-color: #{{:ColorLines}} !important;
+            }
+
+        </style>
+        <div>&nbsp;</div>
+
+        <div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <h3>
+                        Antecedentes Familiares
+                    </h3>
+                </div>
+                <div class="col-xs-6" style="margin-top:30px">
+                    <span class="pull-right"><strong>Fecha:&nbsp; <span id="DatePrint"></span></strong></span>
+                </div>
+
+            </div>
+            <hr>
+            <div width="100%">
+                {{if PrinterHeader == ''}}
+                <div><h5><strong>Doctor:</strong>&nbsp; {{:DoctorName}} </h5></div>
+                {{/if}}
+                <div><h5><strong>Paciente:</strong>&nbsp; {{:PatientName}} </h5></div>
+                <hr>
+            </div>
+            
+            <div width="100%">
+                <div class="form-horizontal">
+                    {{if Diabetes}}
+                    <div class="form-group col-xs-4">
+                        <span><strong>Diabetes:</strong> {{:DetalleDiabetes}}</span>
+                    </div>
+                    {{/if}}
+                    
+                    {{if Hipertension}}
+                    <div class="form-group col-xs-4">
+                        <span><strong>Hipertensión:</strong> {{:DetalleHipertension}}</span>
+                    </div>
+                    {{/if}}
+
+                    {{if Cancer}}
+                    <div class="form-group col-xs-4">
+                        <span><strong>Cancer:</strong> {{:DetalleCancer}}</span>
+                    </div>
+                    {{/if}}
+                    
+                    {{if CerebroVascular}}
+                    <div class="form-group col-xs-4">
+                        <span><strong>Enf. Neurológica:</strong> {{:DetalleCerebroVascular}}</span>
+                    </div>
+                    {{/if}}
+                    
+                    {{if EnfermadadCardiaca}}
+                    <div class="form-group col-xs-4">
+                        <span><strong>Enf. Cardiológica:</strong> {{:DetalleEnfermadadCardiaca}}</span>
+                    </div>
+                    {{/if}}
+                    
+                    {{if Gastrointestinal}}
+                    <div class="form-group col-xs-4">
+                        <span><strong>Enf. Gastrointestinal:</strong> {{:DetalleGastrointestinal}}</span>
+                    </div>
+                    {{/if}}
+                    
+                    {{if Infecciosas}}
+                    <div class="form-group col-xs-4">
+                        <span><strong>Enf. Infecciosas:</strong> {{:DetalleInfecciosas}}</span>
+                    </div>
+                    {{/if}}
+                    
+                    {{if Tiroidea}}
+                    <div class="form-group col-xs-4">
+                        <span><strong>Enf. Tiroidea:</strong> {{:DetalleTiroidea}}</span>
+                    </div>
+                    {{/if}}
+                    
+                    {{if Respiratoria}}
+                    <div class="form-group col-xs-4">
+                        <span><strong>Enf. Respiratoria:</strong> {{:DetalleRespiratoria}}</span>
+                    </div>
+                    {{/if}}
+                    
+                    
+                    
+                    <div class="form-group">
+                        <span class="col-xs-12"><strong>Comentarios:</strong></span>
+                        <div class="col-xs-10" style="margin-top:10px !important;">
+                            <span style="white-space: pre-line;">{{:Comentarios}}</span>
+                        </div>
+                    </div>
+                    <div width="100%" style="text-align: center;padding-top:5px">
+                         <h4><strong><pre style="border: none;">{{:DoctorCedula}}</pre></strong> </h4>
+                    </div>
+                    
+                    <img src="data:image/gif;base64,{{:HeaderLogo}}" style="display:none;" />
+                    <img src="data:image/gif;base64,{{:FooterLogo}}" style="display:none;" />
+                </div>
+            </div>
+                    
+        </div>
+    </body>
+</html>
+
+<script>
+    var now = moment().format('DD/MM/YYYY hh:mm A')
+
+    document.getElementById("DatePrint").innerHTML = now;
+</script>

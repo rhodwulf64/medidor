@@ -1,0 +1,325 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://webmedico.net/Scripts/moment.js"></script>
+    <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+    <style>
+body {
+            font: 7px "Tahoma" !important;
+            border:0px solid #{{ColorLines}}
+        
+        ;
+        
+    }
+    h5{
+        font-size: 16px;
+    }
+    hr {
+        border-top-color: #{{ColorLines}}
+    ;
+    !important;
+}
+table,
+th,
+td {
+    border: 1px solid #CCCCCC;
+    font-size: 9px;
+    font-family: Tahoma;
+}
+pre{
+    border-style: none;
+    margin-top:-27Px;
+    margin-left:-9Px;
+    font-size: 8px;
+    font-family: Tahoma;
+}
+td {
+    padding-top: 3px;
+    padding-left: 5px;
+    padding-right: 7px;
+    padding-bottom: 3px;
+}
+
+.titulo {
+    font-size: 14px !important;
+}
+.subtitulo {
+    font-size: 10px !important;
+}
+.descri{
+    margin-bottom:2px;
+    margin-top:-8px;
+    font-size: 8px;
+    font-family: Tahoma;
+}
+.contenido{
+    margin-top:-8Px;
+    font-size: 8px;
+    font-family: Tahoma;
+}
+span.underline {
+    border-bottom: 1px solid #CCCCCC;
+    display:block;
+}
+#left-column {
+	float: left;
+    background-color: red;
+	border: 1px;
+	width: 50%;
+    height:inherit;
+}
+
+#right-column {
+    float: left;
+	width: 50%;
+    background-color: blue;
+	display: block;
+    height:inherit;
+}
+
+div.fixed {
+    position: fixed;
+    bottom: 50%;
+    right: 25%;
+    width: 500px;
+
+}
+
+
+
+
+
+ </style>
+</head>
+
+<div style="margin-left:25px;">
+    <div>
+        <div>
+            <p style="margin-bottom:2px; margin-top:10px; text-align: center;" class="titulo">
+                <strong>Consentimiento Informado para {{Consentimiento.Descripcion}}</strong>
+            </p>
+            <br/>
+            <p style="margin-top:8px;" class="subtitulo">
+                <strong>2. Nombre del establecimiento de salud: </strong>{{Consentimiento.Hospital}}
+            </p>
+            
+            <p style="margin-top:-8px;" class="subtitulo">
+                <strong>3. Servicio del establecimiento de salud: </strong>{{Consentimiento.Servicio}}
+            </p>
+            
+            <br/>
+            <p class="subtitulo">
+                <strong>4. NÚMERO DE CÉDULA/HCU DEL PACIENTE: </strong>{{PatientCed}}
+            </p>
+            
+            <p class="subtitulo">
+                <strong>5. FECHA: </strong> {{Fecha}}&nbsp 
+                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<strong>6. HORA: </strong> {{Hora}}
+            </p>
+            <br/>
+            <p style="font-size: 10px;">
+                <strong>7. </strong>
+            </p>
+
+        </div>
+        
+        <div style="margin-top:-10px;">
+            <div class="col-xs-12" style="margin-top:-20px;">
+
+                <table align="center" style="margin: 0px auto;">
+                    <tbody>
+                        <tr>
+                            <td width="200px;" align="right">
+                                <Strong>APELLIDO PATERNO</Strong>
+                            </td>
+                            <td width="200px;" align="right">
+                                <Strong>APELLIDO MATERNO</Strong>
+                            </td>
+                            <td width="200px;" align="right">
+                                <Strong>NOMBRES</Strong>
+                            </td>
+                            <td width="200px;" align="right">
+                                <Strong>EDAD</Strong>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td align="right">
+                                {{ApellidoPaterno}}
+                            </td>
+                            <td align="right">
+                                {{ApellidoMaterno}}
+                            </td>
+                            <td align="right">
+                                {{Nombre}}
+                            </td>
+                            <td align="right">
+                                {{Edad}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div>
+            <p style="margin-bottom:2px; margin-top:40px; font-size: 8px;">
+                <strong>8. TIPO DE ATENCIÓN: </strong> {{TipoAtencion}}
+            </p>
+            
+            <br/>
+            <br/>
+            <p class="descri">
+                <strong>9. NOMBRE DE DIAGNÓSTICO (codificación CIE10)</strong>
+            </p>
+            
+            <br/>
+            <p class="contenido">
+                <pre>{{Consentimiento.Diagnostico}}</pre>
+            </p>
+
+            <p class="descri">
+                <strong>10. NOMBRE DEL PROCEDIMIENTO RECOMENDADO: </strong>{{Consentimiento.Descripcion}}
+            </p>
+            
+            <br/>
+            <br/>
+
+            <div>
+                <p class="descri">
+                    <strong>11. ¿EN QUÉ CONSISTE?</strong>
+                </p>
+                <br/>
+                <p class="contenido">
+                    <pre>{{Consentimiento.Consiste}}</pre>
+                </p>
+            </div>
+            
+            
+            <div>
+            <p class="descri">
+                <strong>12. ¿CÓMO SE REALIZA?</strong>
+            </p>
+            <br/>
+            <p class="contenido">
+                <pre>{{Consentimiento.Realiza}}</pre>
+            </p>
+            </div>
+
+            <p class="descri">
+                <strong>13. GRÁFICO DE LA INTERVENCIÓN</strong>
+            </p>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            
+
+            <p class="descri">
+                <strong>14. DURACIÓN ESTIMADA DE LA INTERVENCIÓN: </strong> {{Consentimiento.Duracion}}
+            </p>
+            <br/>
+            
+            <br/>
+            <div>
+            <p class="descri">
+                <strong>15. BENEFICIOS DEL PROCEDIMIENTO</strong>
+            </p>
+            
+            <br/>
+            <p class="contenido">
+                <pre>{{Consentimiento.Beneficios}}</pre>
+            </p>
+            </div>
+            
+            <div>
+            <p class="descri">
+                <strong>16. RIESGOS FRECUETES (POCO GRAVES):</strong>
+            </p>
+            <br/>
+            <p class="contenido">
+                <pre>{{Consentimiento.RiesgosFrecuentes}}</pre>
+            </p>
+            </div>
+
+            <div>
+            <p class="descri">
+                <strong>17. RIESGOS POCO FRECUENTES (GRAVES):</strong>
+            </p>
+            <br/>
+            <p class="contenido">
+                <pre>{{Consentimiento.RiesgosPocoFrecuentes}}</pre>
+            </p>
+            </div>
+            
+            <div>
+            <p class="descri">
+                <strong>18. DE EXISTIR, ESCRIBA LOS RIESGOS REALCIONADOS CON EL PACIENTE (edad, estado de salud, creencias, valores, etc):</strong>
+            </p>
+            <br/>
+            <p class="contenido">
+                <pre>{{Consentimiento.RiesgosEspecificos}}</pre>
+            </p>
+            </div>
+
+            <div>
+            <p class="descri">
+                <strong>19. ALTERNATIVAS AL PROCEDIMIENTO:</strong>
+            </p>
+            <br/>
+            <p class="contenido">
+                <pre>{{Consentimiento.Alternativas}}</pre>
+            </p>
+            </div>
+            
+            <div>
+            <p class="descri">
+                <strong>20. DESCRIPCIÓN DEL MANEJO POSTERIOR AL PROCEDIMIENTO:</strong>
+            </p>
+            <br/>
+            <p class="contenido">
+                <pre>{{Consentimiento.DescripcionManejo}}</pre>
+            </p>
+            </div>
+            
+            
+            <p class="descri">
+                <strong>21. CONSECUENCIAS POSIBLES SI NO SE REALIZA EL PROCEDIMIENTO:</strong>
+            </p>
+            <br/>
+        
+
+            <p class="contenido">
+                <pre>{{Consentimiento.Consecuencias}}</pre>
+            </p>
+            
+            
+
+        </div>
+        
+        
+    </div>
+    
+    
+    
+</div>
+
+<div class="fixed" st>
+        <img style="margin-left:21px;" src='{#image foot}'/>
+    </div>
+
+
+
+
+<div style="page-break-before: always;">
+    <img style="margin-top:-4px; margin-left:-4px;" src='{#image prueba3}'/>
+</div>
+

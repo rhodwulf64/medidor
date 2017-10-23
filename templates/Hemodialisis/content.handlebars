@@ -1,0 +1,777 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://webmedico.net/Scripts/moment.js"></script>
+    <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+    <style>
+        table {
+            font: 10px tahoma;
+        }
+        
+        td {
+            padding-top: 1px;
+            padding-left: 2px;
+            padding-right: 1px;
+        }
+        
+        hr {
+            margin-top: 0px;
+            margin-bottom: 1px;
+            margin-left: 0px;
+            margin-right: 0px;
+            border-top: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height:81px; margin-top:-1px;">
+        <div style="width:25%; float:left">
+            <img src="data:image/gif;base64,{{HeaderLogo}}" style="margin-left:0.1cm;height:80px" />
+        </div>
+        <div style="width:75%; padding-top:43px;" align="center">
+            <p style="white-space:pre-wrap;font: 10px tahoma;">{{PrinterHeader}}</p>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+    <table style="width:100%;">
+        <tr>
+            <td style="width:6.6667%; border:solid 1px black;" colspan="2">HC{{PatientHistory}}</td>
+            <td style="width:63.3333%; border:solid 1px black;text-align:center; font-size:18px;" colspan="12">
+                <B>REPORTE DE HEMODIALISIS</B>
+            </td>
+            <td style="width:16.6667%; border:solid 1px black;" colspan="2">Vol=ST=</td>
+            <td style="width:13.3333%; border:solid 1px black;; font-size:12px;">
+                <b>FECHA:</b>
+                {{#if Hemodialisis.HemodialisisDate}} <span id="DatePrint"></span> {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:40%; border:solid 1px black;" colspan="10">Nombre del Paciente:
+                <BR/>{{PatientName}}</td>
+            <td style="width:13.3333%; border:solid 1px black;" colspan="2">HD Acumuladas
+                <BR/> {{#if Hemodialisis.HemodialisisAcumuladas}}
+                <span style="padding-left:45%">{{Hemodialisis.HemodialisisAcumuladas}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">HD del Mes
+                <BR/> {{#if Hemodialisis.HemodialisisMes}}
+                <span style="padding-left:45%">{{Hemodialisis.HemodialisisMes}}</span>
+                {{/if}}
+            </td>
+            <td style="width:20%; border:solid 1px black;" colspan="3">MÁQUINA:
+                <BR/> {{#if Hemodialisis.Maquina}}
+                <span style="padding-left:45%">{{Hemodialisis.Maquina}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Nº
+                <BR/> {{#if Hemodialisis.Numero}}
+                <span style="padding-left:45%">{{Hemodialisis.Numero}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center">
+                <b>HORA</b>
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center">
+                <b>TA</b>
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center">
+                <b>P</b>
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center">
+                <b>QB</b>
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center">
+                <b>QD</b>
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center">
+                <b>P+</b>
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center">
+                <b>P.</b>
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center">
+                <b>PTM</b>
+            </td>
+            <td style="width:26.6667%; border:solid 1px black;text-align:center" colspan="4">
+                <b>ENFERMERÍA</b>
+            </td>
+            <td style="width:20%; border:solid 1px black;text-align:center" colspan="3">
+                <b>COMPLICACIONES EN HEMODIALISIS</b>
+            </td>
+            <td style="width:26.6667%; border:solid 1px black;text-align:center" colspan="2">
+                <b>PRESCRIPCIÓN MEDICA</b>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;padding-left:0px;padding-right:0px;" rowspan="15" valign="top">
+                {{#each Hemodialisis.HemodialisisSignosVitales}} {{Hora}}
+                <HR/> {{/each}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;padding-left:0px;padding-right:0px;" rowspan="15" valign="top">
+                {{#each Hemodialisis.HemodialisisSignosVitales}} {{TA}}
+                <HR/> {{/each}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;padding-left:0px;padding-right:0px;" rowspan="15" valign="top">
+                {{#each Hemodialisis.HemodialisisSignosVitales}} {{P}}
+                <HR/> {{/each}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;padding-left:0px;padding-right:0px;" rowspan="15" valign="top">
+                {{#each Hemodialisis.HemodialisisSignosVitales}} {{QB}}
+                <HR/> {{/each}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;padding-left:0px;padding-right:0px;" rowspan="15" valign="top">
+                {{#each Hemodialisis.HemodialisisSignosVitales}} {{QD}}
+                <HR/> {{/each}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;padding-left:0px;padding-right:0px;" rowspan="15" valign="top">
+                {{#each Hemodialisis.HemodialisisSignosVitales}} {{Pmas}}
+                <HR/> {{/each}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;padding-left:0px;padding-right:0px;" rowspan="15" valign="top">
+                {{#each Hemodialisis.HemodialisisSignosVitales}} {{Ppunto}}
+                <HR/> {{/each}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;padding-left:0px;padding-right:0px;" rowspan="15" valign="top">
+                {{#each Hemodialisis.HemodialisisSignosVitales}} {{PTM}}
+                <HR/> {{/each}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;text-align:center" colspan="2">
+                <b>MEDICACIÓN</b>
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;text-align:center" colspan="2">
+                <b>OBSERVACIÓN</b>
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;text-align:center">
+                <b>DETALLE</b>
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center">
+                <b>S</b>
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center">
+                <b>N</b>
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;text-align:center">
+                <b>PESO</b>
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;text-align:center">
+                <b>KTA(p)</b>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black;padding-left:0px;padding-right:0px;" colspan="2" rowspan="8" valign="top">
+                {{#each Hemodialisis.HemodialisisEnfermeria}}
+                <span style="padding-left:2px;">{{Medicacion}}</span>
+                <HR/> {{/each}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;padding-left:0px;padding-right:0px;" colspan="2" rowspan="8" valign="top">
+                {{#each Hemodialisis.HemodialisisEnfermeria}}
+                <span style="padding-left:2px;">{{Observacion}}</span>
+                <HR/> {{/each}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Arritmia</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Arritmia}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Arritmia}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Seco {{#if Hemodialisis.PesoSeco}}
+                <span style="padding-left:27px;">{{Hemodialisis.PesoSeco}} Kg</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Filtro {{#if Hemodialisis.KTAFiltro}}
+                <span style="padding-left:8px;">{{Hemodialisis.KTAFiltro}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black;font-size:8px;">Calambres</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Calambres}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Calambres}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Inicial {{#if Hemodialisis.PesoInicial}}
+                <span style="padding-left:25px;">{{Hemodialisis.PesoInicial}} Kg</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">N {{#if Hemodialisis.KTAN}}
+                <span style="margin-left:2px;margin-right:10%;">✔</span>
+                {{else}}
+                <span style="margin-left:2px;margin-right:15%;"></span>
+                {{/if}} R1 {{#if Hemodialisis.KTAR1}}
+                <span style="margin-left:2px;margin-right:10%;">✔</span>
+                {{else}}
+                <span style="margin-left:2px;margin-right:15%;"></span>
+                {{/if}} R2 {{#if Hemodialisis.KTAR2}}
+                <span style="margin-left:2px;margin-right:10%;">✔</span>
+                {{else}}
+                <span style="margin-left:2px;margin-right:15%;"></span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Cefalea</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Cefalea}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Cefalea}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Exceso{{#if Hemodialisis.PesoExceso}}
+                <span style="padding-left:17px;">{{Hemodialisis.PesoExceso}} Kg</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Primig{{#if Hemodialisis.KTAPrimig}}
+                <span style="padding-left:8px;">{{Hemodialisis.KTAPrimig}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Coagulación del Sistema</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.CoagulacionSistema}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.CoagulacionSistema}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Final{{#if Hemodialisis.PesoFinal}}
+                <span style="padding-left:30px;">{{Hemodialisis.PesoFinal}} Kg</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">KoA{{#if Hemodialisis.KTAKoA}}
+                <span style="padding-left:8px;">{{Hemodialisis.KTAKoA}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Convulsiones</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Convulsiones}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Convulsiones}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Perdida{{#if Hemodialisis.PesoPerdida}}
+                <span style="padding-left:15px;">{{Hemodialisis.PesoPerdida}} Kg</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Kuf{{#if Hemodialisis.KTAKuf}}
+                <span style="padding-left:8px;">{{Hemodialisis.KTAKuf}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">CrisisHipertensivas</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.CrisisHipertensivas}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.CrisisHipertensivas}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;text-align:center">
+                <b>ACCESO</b>
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Agujas{{#if Hemodialisis.KTAAgujas}}
+                <span style="padding-left:8px;">{{Hemodialisis.KTAAgujas}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Defecto de Maquina de Hem</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.DefectoMaquina}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.DefectoMaquina}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">FAV{{#if Hemodialisis.AccesoFAV}}
+                <span style="padding-left:8px;">{{Hemodialisis.AccesoFAV}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Heparina{{#if Hemodialisis.KTAHeparina}}
+                <span style="padding-left:8px;">{{Hemodialisis.KTAHeparina}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Dolor Lumbar</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.DolorLumbar}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.DolorLumbar}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">IAV{{#if Hemodialisis.AccesoIAV}}
+                <span style="padding-left:8px;">{{Hemodialisis.AccesoIAV}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Tiempo (P){{#if Hemodialisis.KTATiempoP}}
+                <span style="padding-left:8px;">{{Hemodialisis.KTATiempoP}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black;text-align:center;font-size: 9px;" colspan="2">
+                <b>PREPARACIÓN MÁQUINA</b>
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;text-align:center;font-size: 9px;" colspan="2">
+                <b>PREPARACIÓN EQ. DIAL.</b>
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Dolor Procordial</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.DolorProcordial}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.DolorProcordial}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">CAT{{#if Hemodialisis.AccesoCAT}}
+                <span style="padding-left:8px;">{{Hemodialisis.AccesoCAT}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Tiempo (R){{#if Hemodialisis.KTATiempoR}}
+                <span style="padding-left:8px;">{{Hemodialisis.KTATiempoR}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:6.6667%; border:solid 1px black;">
+                <b>Desinfect</b>
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.PMDesinfeccion}} {{Hemodialisis.PMDesinfeccion}} {{/if}}
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;">
+                <b>Filtro</b>
+            </td>
+            <td style="width:6.6667%%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.PEDFiltro}} {{Hemodialisis.PEDFiltro}} {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Embolia Gaseosa</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.EmboliaGaseosa}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.EmboliaGaseosa}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">EPO{{#if Hemodialisis.AccesoEPO}}
+                <span style="padding-left:8px;">{{Hemodialisis.AccesoEPO}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">
+                <b>DIALIZANTE</b>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:6.6667%; border:solid 1px black;">
+                <b>Lavado</b>
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.PMLavado}} {{Hemodialisis.PMLavado}} {{/if}}
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;">
+                <b>Línea</b>
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.PEDLinea}} {{Hemodialisis.PEDLinea}} {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Escalofrío</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Escalofrio}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Escalofrio}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Tsang{{#if Hemodialisis.AccesoTsang}}
+                <span style="padding-left:8px;">{{Hemodialisis.AccesoTsang}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Acetalo{{#if Hemodialisis.DializanteAcetalo}}
+                <span style="padding-left:8px;">{{Hemodialisis.DializanteAcetalo}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:6.6667%; border:solid 1px black;">
+                <b>Test</b>
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.PMTest}} {{Hemodialisis.PMTest}} {{/if}}
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;">
+                <b>Cebado</b>
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;;text-align:center;">
+                {{#if Hemodialisis.PEDCebado}} {{Hemodialisis.PEDCebado}} {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Fiebre</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Fiebre}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Fiebre}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Vac{{#if Hemodialisis.AccesoVac}}
+                <span style="padding-left:8px;">{{Hemodialisis.AccesoVac}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Bicarb{{#if Hemodialisis.DializanteBicarbonato}}
+                <span style="padding-left:8px;">{{Hemodialisis.DializanteBicarbonato}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:6.6667%; border:solid 1px black;">
+                <b>Conduct</b>
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.PMConduct}} {{Hemodialisis.PMConduct}} {{/if}}
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;">
+                <b>Lista</b>
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.PEDLista}} {{Hemodialisis.PEDLista}} {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Flujo Inadecuado Acceso V</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.FlujoInadecuadoAccesoVascular}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.FlujoInadecuadoAccesoVascular}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">VII C{{#if Hemodialisis.AccesoVII_C}}
+                <span style="padding-left:8px;">{{Hemodialisis.AccesoVII_C}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Na{{#if Hemodialisis.DializanteNa}}
+                <span style="padding-left:8px;">{{Hemodialisis.DializanteNa}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:6.6667%; border:solid 1px black;">
+                <b>FIRMA</b>
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;"></td>
+            <td style="width:6.6667%; border:solid 1px black;">
+                <b>FIRMA</b>
+            </td>
+            <td style="width:6.6667%; border:solid 1px black;"></td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Hematoma Acceso Vascular</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.HematomaAccesoVascular}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.HematomaAccesoVascular}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Comp B{{#if Hemodialisis.AccesoComp_B}}
+                <span style="padding-left:8px;">{{Hemodialisis.AccesoComp_B}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">K{{#if Hemodialisis.DializanteK}}
+                <span style="padding-left:8px;">{{Hemodialisis.DializanteK}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:53.3333%; border:solid 1px black;" colspan="12">
+                <b>Exámen Clínico Pre-Diálisis</b>
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Hemolisis</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Hemolisis}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Hemolisis}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Fe{{#if Hemodialisis.AccesoPe}}
+                <span style="padding-left:8px;">{{Hemodialisis.AccesoPe}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;"></td>
+        </tr>
+        <tr>
+            <td style="width:53.3333%; border:solid 1px black;" colspan="12" rowspan="4" valign="top">
+                {{#if Hemodialisis.SubjetivoDialisis}} <span>S: {{Hemodialisis.SubjetivoDialisis}}</span><BR/> {{/if}}
+                {{#if Hemodialisis.ObjetivoDialisis}} <span>O: {{Hemodialisis.ObjetivoDialisis}}</span><BR/> {{/if}}
+                {{#if Hemodialisis.AnalisisDialisis}} <span>A: {{Hemodialisis.AnalisisDialisis}}</span><BR/> {{/if}}
+                {{#if Hemodialisis.PlanDialisis}} <span>P: {{Hemodialisis.PlanDialisis}}</span><BR/> {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Hipertensión Arterial</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.HipertensionArterial}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.HipertensionArterial}} {{else}} x {{/if}}
+            </td>
+            <td style="width:26.6667%; border:solid 1px black;text-align:center" colspan="2">
+                <b>LABORATORIO</b>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Hipoxemia</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Hipoxemia}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Hipoxemia}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;text-align:center">
+                <b>PRE</b>
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;text-align:center">
+                <b>POST</b>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Hipotensión</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Hipotension}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Hipotension}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Urea{{#if Hemodialisis.LaboratorioPreUrea}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPreUrea}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Urea{{#if Hemodialisis.LaboratorioPostUrea}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPostUrea}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Nausea Vómito</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.NauseaVomito}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.NauseaVomito}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Glucosa{{#if Hemodialisis.LaboratorioPreGlucosa}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPreGlucosa}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Glucosa{{#if Hemodialisis.LaboratorioPostGlucosa}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPostGlucosa}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:53.3333%; border:solid 1px black;" colspan="12">
+                <b>Evolución Nutricional</b>
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Prurito</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Pruritos}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Pruritos}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Creatinina{{#if Hemodialisis.LaboratorioPreCreatinina}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPreCreatinina}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Creatinina{{#if Hemodialisis.LaboratorioPostCreatinina}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPostCreatinina}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:53.3333%; border:solid 1px black;" colspan="12" rowspan="4" valign="top">
+                {{#if Hemodialisis.EvolucionNutricional}} {{Hemodialisis.EvolucionNutricional}} {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Reacción Anaflactica</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.ReaccionAnaflactica}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.ReaccionAnaflactica}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">NA{{#if Hemodialisis.LaboratorioPreNA}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPreNA}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">NA{{#if Hemodialisis.LaboratorioPostNA}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPostNA}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Ruptura de Capilares de Filtro</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.RupturaCapilaresFiltro}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.RupturaCapilaresFiltro}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">K{{#if Hemodialisis.LaboratorioPreK}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPreK}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">K{{#if Hemodialisis.LaboratorioPostK}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPostK}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Ruptura Sistema/filtros Líneas</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.RupturaSistemas_FiltrosLineas}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.RupturaSistemas_FiltrosLineas}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Hcto{{#if Hemodialisis.LaboratorioPreHcto}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPreHcto}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Hcto{{#if Hemodialisis.LaboratorioPostHcto}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPostHcto}}</span>
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Sangrado Acceso Vascular</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.SangradoAccesoVascular}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.SangradoAccesoVascular}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">Ca{{#if Hemodialisis.LaboratorioPreCa}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPreCa}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;"></td>
+        </tr>
+        <tr>
+            <td style="width:53.3333%; border:solid 1px black;" colspan="12">
+                <b>Evolución Psicologica</b>
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Sangrado Digestivo</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.SangradoDigestivo}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.SangradoDigestivo}} {{else}} x {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;">P{{#if Hemodialisis.LaboratorioPreP}}
+                <span style="padding-left:5px;">{{Hemodialisis.LaboratorioPreP}}</span>
+                {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black;"></td>
+        </tr>
+        <tr>
+            <td style="width:53.3333%; border:solid 1px black;" colspan="12" rowspan="4" valign="top">
+                {{#if Hemodialisis.EvolucionPsicologica}} {{Hemodialisis.EvolucionPsicologica}} {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Síndrome de Desequilibrio</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.SindromeDesequilibrio}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.SindromeDesequilibrio}} {{else}} x {{/if}}
+            </td>
+            <td style="width:26.6667%; border:solid 1px black;text-align:center" colspan="2">
+                <b>PRESCRIPCIÓN MEDICA</b>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Síndrome de Primer Uso</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.SindromePrimerUso}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.SindromePrimerUso}} {{else}} x {{/if}}
+            </td>
+            <td style="width:26.6667%; border:solid 1px black;" colspan="2" rowspan="6" valign="top">
+                {{#if Hemodialisis.PrescripcionMedica}} {{Hemodialisis.PrescripcionMedica}} {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Tapomiento Cardiaco</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.TapomientoCardiaco}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.TapomientoCardiaco}} {{else}} x {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Trompos de Acceso Vascular</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.TromposAccesoVascular}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.TromposAccesoVascular}} {{else}} x {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:53.3333%; border:solid 1px black;" colspan="12">
+                <b>Observaciones: / Complicaciones:</b>
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Diarrea</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Diarrea}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Diarrea}} {{else}} x {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:53.3333%; border:solid 1px black;" colspan="12" rowspan="2" valign="top">
+                {{#if Hemodialisis.Observaciones}} {{Hemodialisis.Observaciones}} {{/if}}
+            </td>
+            <td style="width:13.3333%; border:solid 1px black; font-size:8px;">Otros</td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Otros}} x {{/if}}
+            </td>
+            <td style="width:3.3333%; border:solid 1px black;text-align:center;">
+                {{#if Hemodialisis.Otros}} {{else}} x {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%; border:solid 1px black; font-size:10px;" colspan="3">
+                {{#if Hemodialisis.Otros}} {{Hemodialisis.OtrosTexto}} {{else}} &nbsp; {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:13.3333%; border:solid 1px black;" colspan="4">
+                <b>MÉDICO</b>
+                <BR/>&nbsp;
+                <BR/>&nbsp;</td>
+            <td style="width:10%; border:solid 1px black;" colspan="3">
+                <b>ENFERMERÍA</b>
+                <BR/>&nbsp;
+                <BR/>&nbsp;</td>
+            <td style="width:16.6667%; border:solid 1px black;" colspan="3">
+                <b>PACIENTE</b>
+                <BR/>&nbsp;
+                <BR/>&nbsp;</td>
+            <td style="width:13.3333%; border:solid 1px black;" colspan="2">
+                <b>CONTROL</b>
+                <BR/>&nbsp;
+                <BR/>&nbsp;</td>
+            <td style="width:46.6667%; border:solid 1px black;" colspan="5">
+                <b>MEDICACIÓN</b>
+                <BR/>&nbsp;
+                <BR/>&nbsp;</td>
+        </tr>
+    </table>
+    <img src="data:image/gif;base64,{{HeaderLogo}}" height="10px" style="display:none;" />
+<script>
+    var Fatencion = '{{Hemodialisis.HemodialisisDate}}';
+    var FechaDialisis = moment(Fatencion).format('DD/MM/YYYY');
+    document.getElementById("DatePrint").innerHTML = FechaDialisis;
+</script>
+</body>
+
+</html>

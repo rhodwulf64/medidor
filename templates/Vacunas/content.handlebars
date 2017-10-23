@@ -1,0 +1,89 @@
+<html>
+    <head>    
+        <meta charset="utf-8" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+        <style>
+            body {
+                font: 11px "Tahoma" !important;
+            }
+            
+            hr {
+                border-top-color: #{{ColorLines}} !important;
+            }
+            
+            table.table-striped th, table.table-bordered th, table.table-striped td, table.table-bordered td {
+              font-size : 10px;
+              font-family : Tahoma;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <span>&nbsp;</span>
+        <div class="row">
+            <div class="col-xs-6">
+                <h4>Esquema de Vacunación</h4>
+            </div>
+            <div class="col-xs-6" style="padding-top:15px">
+                <span class="pull-right"><strong>Fecha:&nbsp; <span id="DatePrint"></span></strong></span>
+            </div>
+        </div>
+        
+        <hr>
+        <div width="100%">
+                {{#unless PrinterHeader}}
+                <div><h5><strong>Doctor:</strong>&nbsp; {{DoctorName}} </h5></div>
+                {{/unless}}
+                <div><h5><strong>Paciente:</strong>&nbsp; {{PatientName}} </h5></div>
+                <hr>
+        </div>
+        
+        
+        {{#if Vacunas}}
+            <div class="row">
+                
+                
+                <div class="col-xs-12">
+                    <table id="table-vacunas" class="table table-condensed table-striped table-bordered">                    
+                        <tr>
+                            <th><span class="text">Vacuna</span></th>
+                            <th><span class="text">Dosis</span></th>
+                            <th><span class="text">Edad Recomendada</span></th>
+                            <th><span class="text">Aplicada</span></th>
+                            <th><span class="text">Fecha Vacunación</span></th>
+                            <th><span class="text">Lote</span></th>
+                            <th><span class="text">Quién Aplica</span></th>
+                            <th><span class="text">RAM</span></th>
+                        </tr>
+                        {{#each Vacunas}}
+                            
+                            <tr>
+                                <td>{{Vacuna}}</td>
+                                <td>{{Dosis}}</td>
+                                <td>{{EdadRecomendada}}</td>
+                                <td>{{#if Aplicada}}Si{{else}}&nbsp;{{/if}}</td>
+                                <td>{{FechaVacuna}}</td>
+                                <td>{{Lote}}</td>
+                                <td>{{QuienAplica}}</td>
+                                <td>{{RAM}}</td>
+                            </tr>
+                            
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        {{/if}}
+        
+        <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+        <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+    </body>
+</html>
+
+<script>
+    var now = moment().locale("es").format('dddd D MMMM YYYY');
+    
+    document.getElementById("DatePrint").innerHTML = now;
+    
+</script>

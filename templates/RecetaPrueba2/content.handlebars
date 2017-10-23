@@ -1,0 +1,282 @@
+<html>
+    <head>    
+        <meta charset="utf-8" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+        <style>
+            body {
+                font: 10px "Tahoma" !important;
+                width: 210mm;
+                height: 148mm;
+            }
+            
+            hr {
+                border-top-color: #{{ColorLines}} !important;
+                max-width:;
+                min-width:;
+                min-height:;
+                max-height:;
+            }
+            
+            .recetalbl {
+                font-weight: bold;
+                padding-left:5mm;
+            }
+            
+            .receta {
+                /*min-width:203mm;
+                max-width:203mm;*/
+                min-height:143mm;
+                max-height:143mm;
+                padding-top:5mm;
+            }
+            
+            .receta-side {
+                min-width:50%;
+                max-width:50%;
+                min-height:138mm;
+                max-height:138mm;
+            }
+            
+            .dontgrow {
+                display: inline-block;
+                white-space:pre-line;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                max-height: 90mm;
+            }
+            
+            .dontgrow2 {
+                display: inline-block;
+                white-space:pre-line;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                max-height: 115mm;
+            }
+            
+            .firma {
+                display: inline-block;
+                white-space:pre-line;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                max-height: 10mm;
+            }
+            
+            .diagnostico {
+                display: inline-block;
+                white-space:pre-line;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                max-height: 11mm;
+            }
+            
+            .footerPrescription {
+                text-align: center;
+                font: 10px tahoma;
+                padding-left: 5mm;
+                padding-top: 2mm;
+                min-height:21mm;
+                max-height:21mm;
+                display: inline-block;
+                white-space:pre-line;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+            }
+            .imageFooter {
+                float:right;
+                padding-top:2px;
+                padding-right:5px;
+                min-width:30mm;
+                max-width:30mm;
+                max-height:19mm;
+            }
+            
+            .headerReceta {
+                text-align: left;
+                font: 10px tahoma;
+                max-height:24mm;
+                display: inline-block;
+                white-space:pre-line;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                font-weight: bold;
+            }
+        </style>
+</head>
+
+<body>
+
+    <div class="receta">
+            <div class="receta-side" style="float:left;">
+               
+                <div width="100%" style="border-bottom:1px solid;min-height:24mm;max-height:24mm;">
+                     {{#if HeaderLogo}}
+                    <div style="width:50%; float:right;padding-right:5mm;">
+                        <img class="pull-right" src="data:image/gif;base64,{{HeaderLogo}}" style="min-height:88px;min-width:45mm;max-height:88px;max-width:45mm;"/>
+                    </div>
+                   {{/if}}
+                    {{#if HeaderLogo}}
+                <div style="width:50%;padding-left:5mm;">
+                   <p class="headerReceta">{{PrinterHeader}}</p>
+                </div>
+              {{/if}}
+            </div>
+            <div style="min-width=101mm;padding-top:5mm;padding-right:10mm;">
+                <span style="margin-left:110px">{{#if Receta.Ciudad}}{{Receta.Ciudad}}, a {{else}}Quito, {{/if}}
+                    <span>{{fechaCrea1}}</span>
+                </span>
+            </div>
+            <div style="min-width=101mm;padding-top:5mm;padding-right:10mm;">
+                <span class="recetalbl"></span>
+                {{#if PatientID}}
+                <span>&nbsp;&nbsp;{{PatientName}}</span>
+                <br>
+                {{else}}
+                <span>&nbsp;&nbsp;{{PatientName}}</span>
+                <br>
+                {{/if}}
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CI:&nbsp;{{PatientID}}</span>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edad:&nbsp;{{PatientAge}}</span>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sexo:&nbsp;{{PatientSexo}}</span>
+                {{#if PatientPeso}}
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Peso:&nbsp;{{PatientPeso}}</span>
+                 {{else}}
+                <span>&nbsp;&nbsp;&nbsp;</span>
+            {{/if}}
+            </div>
+            <div style="min-height:80mm;max-height:80mm;min-width=101mm;">
+                <div style="min-width=110mm;padding-top:3mm;padding-right:15mm;">
+                    <span class="recetalbl">
+                        <strong>Dg:</strong>
+                    </span>
+                    <span>&nbsp;&nbsp;</span>
+                </div>
+                <div style="min-height:5mm;max-height:20mm;min-width=101mm;padding-top:2mm;padding-left:10mm;padding-right:5mm;">
+                   {{#if Receta.Diagnostico}}
+                     <span style="font-family:Tahoma; font-size:10px; display: inline-block; white-space:pre-line; overflow:hidden; text-overflow:ellipsis; min-height:5mm ; max-height: 20mm;">{{Receta.Diagnostico}}</span>
+                    {{/if}}
+                </div>
+                
+                 {{#if PatientPrescripciones}}
+                <div style="min-width=101mm;padding-top:1mm;padding-right:10mm;">
+                    <span class="recetalbl">
+                        <em>Rp:</em>
+                    </span>
+                    <span>&nbsp;&nbsp;</span>
+                </div>
+                <div style="height:45mm;padding-top:1mm;padding-left:7mm;padding-right:5mm;">
+                    <span class="dontgrow">{{PatientPrescripciones}}</span>
+                </div>
+                 {{else}}
+                <div style="height:45mm;padding-top:1mm;padding-left:7mm;padding-right:5mm;">
+                    <span class="dontgrow">&nbsp;</span>
+                </div>
+                {{/if}}
+                <div style="height:12mm;min-width=101mm;padding-top:2mm;padding-left:7mm;padding-right:5mm;bottom:175mm;position:absolute;">
+                    <span class="firma" style="white-space:pre-line;">{{DoctorCedula}}</span>
+                </div>
+                {{#if fechaImpre}}
+                <div style="height:12mm;min-width=101mm;padding-top:2mm;padding-left:65mm;padding-right:5mm;bottom:170mm;position:absolute;">
+                <span style="font:8px Tahoma">Impresión:</span>
+                <span style="white-space:pre-line; font:8px tahoma">{{fechaImpre}}</span>
+                </div>
+                {{/if}}
+            </div>
+            <div width="100%" style="border-top:1px solid;min-height:21mm;max-height:21mm;">
+                {{#if FooterLogo}}
+                <div class="imageFooter">
+                    <img class="pull-right" src="data:image/gif;base64,{{FooterLogo}}" style="max-width:113px;max-height:45px;min-width:113px;min-height:45px;"/>
+                </div>
+                {{/if}}
+                <div style="{{#if FooterLogo}}width:70%;{{/if}}max-height:20mm;">
+                    <p class="footerPrescription">{{PrinterFooter}}</p>
+                </div>
+            </div>
+          
+        </div>
+         <div class="receta-side" style="float:right;border-left:1px solid;border-style: none none none dashed">
+                  
+                <div style="border-bottom:1px solid;min-height:24mm;max-height:24mm;">
+                     {{#if HeaderLogo}}
+                    <div style="width:50%; float:right;padding-right:5mm;">
+                        <img class="pull-right" src="data:image/gif;base64,{{HeaderLogo}}" style="min-height:88px;min-width:45mm;max-height:88px;max-width:45mm;"/>
+                    </div>
+                        {{/if}}
+                     {{#if HeaderLogo}}
+                    <div style="width:50%;padding-left:5mm;">
+                    <p class="headerReceta">{{PrinterHeader}}</p>
+                </div>
+                {{/if}}
+            </div>
+            <div style="min-width=101mm;padding-top:5mm;padding-right:10mm;">
+                <span style="margin-left:110px" <span></span>
+                </span>
+            </div>
+            <div style="min-width=40mm;padding-top:7mm;padding-right:10mm;">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{PatientName}}</span>
+                <br>
+                <span class="recetalbl"></span>
+                <span>&nbsp;&nbsp;&nbsp;CI:&nbsp;{{PatientID}}</span>
+                <span class="recetalbl"></span>
+                <span>&nbsp;&nbsp;&nbsp;Edad:&nbsp;{{PatientAge}}</span>
+                <span class="recetalbl"></span>
+                <span>&nbsp;&nbsp;&nbsp;Sexo:&nbsp;{{PatientSexo}}</span>
+                {{#if PatientPeso}}
+                <span class="recetalbl"></span>
+                <span>&nbsp;&nbsp;&nbsp;Peso:&nbsp;{{PatientPeso}}</span>
+                 {{else}}
+                <span class="recetalbl"></span>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+            {{/if}}
+            </div>
+        
+            
+            <div style="min-width=80mm;padding-top:4mm;padding-right:10mm; padding-left:2mm;">
+                <span class="recetalbl">INDICACIONES:</span>
+            </div>
+            <div style="min-height:30mm;max-height:40mm;min-width=101mm;padding-top:5mm;padding-left:7mm;padding-right:7mm;">
+               {{#if PatientIndicaciones}}
+                <span class="dontgrow2">{{PatientIndicaciones}}</span>
+            </div>
+            {{else}}
+            <div style="min-height:30mm;max-height:40mm;min-width=101mm;padding-top: 5mm;padding-left:7mm;padding-right:7mm;">
+                <span class="dontgrow2">&nbsp;</span>
+            </div>
+            {{/if}}
+            
+            <div style="min-width=101mm;padding-top:8mm;padding-right:7mm; padding-left:2mm;">
+                {{#if PatientRecomendaciones}}
+                <span class="recetalbl">RECOMENDACIONES:</span>
+            </div>
+            <div style="min-height:35mm;max-height:35mm;min-width=75mm;padding-top:5mm;padding-left:7mm;padding-right:7mm;">
+                <span class="dontgrow2">{{PatientRecomendaciones}}</span>
+            </div>
+            {{else}}
+            <div style="min-height:35mm;max-height:35mm;min-width=101mm;padding-top: 5mm;padding-left:7mm;padding-right:7mm;">
+                <span class="dontgrow2">&nbsp;</span>
+            </div>
+            {{/if}}
+             
+                <div style="min-width=101mm;padding-top:1mm;padding-right:10mm;">
+                    <span class="recetalbl">LA PROXIMA CITA: </span><div style="float:right;border-bottom:1px solid;min-width:47mm;">&nbsp;{{Cita}}</div>
+                </div>
+        </div>
+
+    </div>
+
+
+    <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+    <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+</body>
+
+</html>
+
+<script>
+    var now = moment().locale("es").format('DD MMMM YYYY');
+    
+    document.getElementById("DatePrint").innerHTML = now;
+    
+</script>
+
+

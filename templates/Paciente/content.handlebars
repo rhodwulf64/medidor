@@ -1,0 +1,274 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://webmedico.net/Scripts/moment.js"></script>
+    <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+    
+    <style>
+    body {
+            font: 11px "Tahoma" !important;
+        }
+        
+        hr {
+            border-top-color: #{{ColorLines}}
+        
+        !important;
+    }
+    table.table-striped th,
+    table.table-bordered th,
+    table.table-striped td,
+    table.table-bordered td {
+        font-size: 10px;
+        font-family: Tahoma;
+    }
+    </style>
+</head>
+
+<body class="container">
+    
+    <span>&nbsp;</span>
+    <div class="row">
+        <div class="col-xs-6">
+            <h4>Detalles de Paciente</h4>
+        </div>
+        <div class="col-xs-6" style="padding-top:15px">
+            <span class="pull-right">
+                <strong>Fecha:&nbsp;
+                    <span id="DatePrint"></span>
+                </strong>
+            </span>
+        </div>
+    </div>
+
+    <hr>
+    <div width="100%">
+        {{#unless PrinterHeader}}
+        <div>
+            <h5>
+                <strong>Doctor:</strong>&nbsp; {{DoctorName}} </h5>
+        </div>
+        {{/unless}}
+        <div>
+            <h5>
+                <strong>Paciente:</strong>&nbsp; {{Paciente.LastName}} {{Pacient.SecondLastName}} {{Paciente.FirstName}} {{Paciente.SecondFirstName}} </h5>
+        </div>
+        <hr>
+    </div>
+
+    {{#if Paciente}}
+    <div class="row">
+
+        <div class="col-xs-6" style="padding-top:5px;margin-bottom:10px;">
+            <div class="col-xs-12">
+                <Strong>
+                    <span># Paciente:</span>
+                </Strong>
+                <span>{{Paciente.PatientNumber}}</span>
+            </div>
+        </div>
+        <div id="Grafica1" style="float:right; padding-right:150px;">
+            <img id="image-original" src="data:image/gif;base64,{{imagen}}" style="height:200; width:160;" />
+        </div>
+        <div class="col-xs-6" style="margin-bottom:10px;">
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Cedula Identidad:</span>
+                </Strong>
+                <span>{{Paciente.CedulaIdentidad}}</span>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Edad:</span>
+                </Strong>
+                <span>{{Nacimiento}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Tipo de Sangre:</span>
+                </Strong>
+                <span>{{Sangre}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Telefono:</span>
+                </Strong>
+                <span>{{Paciente.PatientPhone}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Celular:</span>
+                </Strong>
+                <span>{{Paciente.PatientCellPhone}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Correo Electronico:</span>
+                </Strong>
+                <span>{{Paciente.PatientEmail}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Lugar de Nacimiento:</span>
+                </Strong>
+                <span>{{Paciente.LugarDeNacimiento}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Ciudad:</span>
+                </Strong>
+                <span>{{Paciente.City}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Direccion:</span>
+                </Strong>
+                <span>{{Paciente.Address}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Ocupación:</span>
+                </Strong>
+                <span>{{Paciente.Ocupacion}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Estado Civil:</span>
+                </Strong>
+                <span>{{EstadoCivil}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Tipo de Paciente:</span>
+                </Strong>
+                <span>{{TipoPaciente}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Referencia:</span>
+                </Strong>
+                <span>{{Paciente.Reference}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Seguro:</span>
+                </Strong>
+                <span>{{Seguro}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Fecha de Registro:</span>
+                </Strong>
+                <span>{{Paciente.RegisterDate}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Sexo:</span>
+                </Strong>
+                <span>{{Paciente.Sexo}}</span>
+                <label>
+                    <br/>
+                    <br/>
+                </label>
+            </div>
+
+            <div class="col-xs-12">
+                <Strong>
+                    <span>Datos Adicionales:</span>
+                </Strong>
+                <span>{{Paciente.AdditionalNotes}}</span>
+            </div>
+        </div>
+
+    </div>
+    {{/if}}
+    <div width="100%" style="text-align: center;padding-top:5px">
+        <h4><strong><pre style="border: none;">{{DoctorCedula}}</pre></strong> </h4>
+    </div>
+
+
+    <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+    <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+</body>
+
+</html>
+
+<script>
+    var now = moment().locale("es").format('dddd D MMMM YYYY');
+    
+    document.getElementById("DatePrint").innerHTML = now;
+    
+</script>

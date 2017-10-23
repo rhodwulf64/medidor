@@ -1,0 +1,377 @@
+<html>
+    <head>    
+        <meta charset="utf-8" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+        <style>
+            body {
+                font: 11px "Tahoma" !important;
+            }
+            
+            hr {
+                border-top-color: #{{ColorLines}} !important;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <span>&nbsp;</span>
+        
+        <div class="row">
+            <div class="col-xs-6">
+                <h4>Antecedentes Personales</h4>
+            </div>
+            <div class="col-xs-6" style="padding-top:15px">
+                <span class="pull-right"><strong>Fecha:&nbsp; <span id="DatePrint"></span></strong></span>
+            </div>
+        </div>
+        <hr>
+        <div width="100%">
+                {{#unless PrinterHeader}}
+                <div><h5><strong>Doctor:</strong>&nbsp; {{DoctorName}} </h5></div>
+                {{/unless}}
+                <div><h5><strong>Paciente:</strong>&nbsp; {{PatientName}} </h5></div>
+                <hr>
+        </div>
+            
+            <div class="row">
+                {{#if Diabetes}}
+                    <div class="col-xs-4">
+                        <label>Diabetes:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleDiabetes}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Hipertension}}
+                    <div class="col-xs-4">
+                        <label>Hipertensión:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleHipertension}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Cancer}}
+                    <div class="col-xs-4">
+                        <label>Cancer:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleCancer}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Neurologica}}
+                    <div class="col-xs-4">
+                        <label>Enf. Neurológica:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleNeurologica}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Cardiologica}}
+                    <div class="col-xs-4">
+                        <label>Enf. Cardiológica:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleCardiologica}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Gastroinstestinal}}
+                    <div class="col-xs-4">
+                        <label>Enf. Gastroinstestinal:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleGastroinstestinal}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Infecciosas}}
+                    <div class="col-xs-4">
+                        <label>Enf. Infecciosas:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleInfecciosas}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if EnfermedadTiroidea}}
+                    <div class="col-xs-4">
+                        <label>Enf. Tiroidea:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleEnfermedadTiroidea}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Respiratoria}}
+                    <div class="col-xs-4">
+                        <label>Enf. Respiratoria:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleRespiratoria}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                
+                
+
+                
+                
+                
+                
+            </div>
+
+            <div class="row">
+                {{#if Patologicos}}
+                    <div class="col-xs-12" style="margin-top:10px;">
+                        <label>
+                            Antecedentes Patológicos:
+                        </label>
+                    </div>
+                    <div class="col-xs-12">
+                        <span style="white-space: pre-line;">{{Patologicos}}</span>
+                    </div>
+                {{/if}}
+                
+                {{#if Medicamentos}}
+                    <div class="col-xs-12" style="margin-top:10px;">
+                        <label>
+                            Medicamentos:
+                        </label>
+                    </div>
+                    <div class="col-xs-12">
+                        <span style="white-space: pre-line;">{{Medicamentos}}</span>
+                    </div>
+                {{/if}}
+                
+              
+                    <div class="col-xs-12" style="margin-top:10px;">
+                        <label>
+                            Hábitos:
+                        </label>
+                    </div>
+                    <br/>
+                  {{#if Fuma}}
+                    <div class="col-xs-4">
+                        <label>Fuma:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleFuma}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Alcohol}}
+                    <div class="col-xs-4">
+                        <label>Alcohol:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleAlcohol}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Drogas}}
+                    <div class="col-xs-4">
+                        <label>Drogas:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleDrogas}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Miccion}}
+                    <div class="col-xs-4">
+                        <label>Micción:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleMiccion}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Deposicion}}
+                    <div class="col-xs-4">
+                        <label>Deposición:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleDeposicion}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Alimentacion}}
+                    <div class="col-xs-4">
+                        <label>Alimentación:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleAlimentacion}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Sedentarismo}}
+                    <div class="col-xs-4">
+                        <label>Sedentarismo:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleSedentarismo}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                
+                {{#if ActividadFisica}}
+                    <div class="col-xs-4">
+                        <label>Actividad Física:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleActividadFisica}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+                {{#if Sueño}}
+                    <div class="col-xs-4">
+                        <label>Sueño:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{DetalleSueño}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+                
+               
+                
+                {{#if Alergias}}
+                    <div class="col-xs-12" style="margin-top:10px;">
+                        <label>
+                            Alergias y Alertas:
+                        </label>
+                    </div>
+                    <div class="col-xs-12">
+                        <span style="white-space: pre-line;">{{Alergias}}</span>
+                    </div>
+                {{/if}}
+                
+                {{#if Cirugias}}
+                    <div class="col-xs-12"style="margin-top:10px;">
+                        <label>
+                            Cirugías:
+                        </label>
+                    </div>
+                    <div class="col-xs-12">
+                        <span style="white-space: pre-line;">{{Cirugias}}</span>
+                    </div>
+                {{/if}}
+                
+                
+                    <div class="col-xs-12" style="margin-top:10px;">
+                        <label>
+                            Antecedentes Gineco-Obstétricos:
+                        </label>
+                    </div>
+                    <br/>
+                    <div class="col-xs-4">
+                        <label>Menarquia:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Menarquia}}</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>Inicio Vida Sexual:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{VidaSexual}}</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>Papanicolau:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Papanicolau}}</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>Planificación Familiar:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Planificacionfamiliar}}</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>ETS:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{ETS}}</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>Gestas:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Gestas}}</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>Abortos:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Abortos}}</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>Partos:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Partos}}</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>Cesareas:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{Cesareas}}</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>HijosVivos:</label>
+                        <div class="col-md-12">
+                            <span style="white-space: pre-line;">{{HijosVivos}}</span>
+                        </div>
+                    </div>
+            
+                
+                {{#if Perinatales}}
+                    <div class="col-xs-12" style="margin-top:10px;">
+                        <label>
+                            Antecedentes Perinatales:
+                        </label>
+                    </div>
+                    <div class="col-xs-12">
+                        <span style="white-space: pre-line;">{{Perinatales}}</span>
+                    </div>
+                {{/if}}
+                
+                {{#if Dermatologicos}}
+                    <div class="col-xs-12" style="margin-top:10px;">
+                        <label>
+                            Antecedentes Dermatológicos:
+                        </label>
+                    </div>
+                    <div class="col-xs-12">
+                        <span style="white-space: pre-line;">{{Dermatologicos}}</span>
+                    </div>
+                {{/if}}
+                
+                {{#if Comentarios}}
+                    <div class="col-xs-12" style="margin-top:10px;">
+                        <label>
+                            Comentarios:
+                        </label>
+                    </div>
+                    <div class="col-xs-12">
+                        <span style="white-space: pre-line;">{{Comentarios}}</span>
+                    </div>
+                {{/if}}
+                
+            </div>
+        <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+        <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+    </body>
+</html>
+
+<script>
+    var now = moment().format('DD/MM/YYYY hh:mm A')
+
+    document.getElementById("DatePrint").innerHTML = now;
+</script>

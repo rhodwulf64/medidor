@@ -1,0 +1,232 @@
+<html>
+    <head>    
+        <meta charset="utf-8" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+        <style>
+            body {
+                font: 11px "Tahoma" !important;
+            }
+            
+            hr {
+                border-top-color: #{{ColorLines}} !important;
+            }
+            
+            table.table-striped th, table.table-bordered th, table.table-striped td, table.table-bordered td {
+              font-size : 10px;
+              font-family : Tahoma;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-xs-6">
+                <h4>Antecedentes Pediátricos</h4>
+            </div>
+            <div class="col-xs-6" style="padding-top:15px">
+                <span class="pull-right"><strong>Fecha:&nbsp; <span id="DatePrint"></span></strong></span>
+            </div>
+        </div>
+        
+        <hr>
+        <div width="100%">
+                {{#unless PrinterHeader}}
+                <div><h5><strong>Doctor:</strong>&nbsp; {{DoctorName}} </h5></div>
+                {{/unless}}
+                <div><h5><strong>Paciente:</strong>&nbsp; {{PatientName}} </h5></div>
+                <hr>
+        </div>
+        
+        
+        {{#if Pediatria}}
+            <div class="row">
+                
+                <div class="col-xs-12">
+                    <p style="padding-top:5px;margin-top:20px;margin-bottom:20px;border-top:1px solid lightgrey;"><strong>PRENATALES:</strong></p>
+                </div>
+                <div class="row col-xs-12">
+                    <div class="col-xs-4"><label for="Controles">Controles: &nbsp;&nbsp;</label>{{Pediatria.Controles}}</div>
+                    <div class="col-xs-4"><label for="Controles">Ecos: &nbsp;&nbsp;</label>{{Pediatria.Ecos}}</div>
+                    <div class="col-xs-4"><label for="Controles">Embarazo: &nbsp;&nbsp;</label>{{Pediatria.Embarazo}}</div>
+                </div>
+                <div class="row col-xs-12">
+                    <div class="col-xs-3 form-group">
+                        <label for="NombrePadre">Padre: &nbsp;&nbsp;</label>
+                        <div><span>{{Pediatria.NombrePadre}}</span></div>
+                    </div>
+                    <div class="col-xs-3 form-group">
+                        <label class="control-label">Fecha de Nacimiento:&nbsp;&nbsp;</label>
+                        <div><span>{{Pediatria.FechaNacimientoPadre}}</span></div>
+                    </div>
+                    <div class="col-xs-3 form-group">
+                        <label for="TipoSangrePadreID">Tipo Sangre:&nbsp;&nbsp;</label>
+                        <div><span>{{Pediatria.TipoSangrePadre}}</span></div>
+                    </div>
+                    <div class="col-xs-3 form-group">
+                        <label for="ProfesionPadre">Profesion:</label>
+                        <div><span>{{Pediatria.ProfesionPadre}}</span></div>
+                    </div>
+                </div>
+                <div class="row col-xs-12">
+                    <div class="col-xs-3 form-group">
+                        <label for="NombrePadre">Madre: &nbsp;&nbsp;</label>
+                        <div><span>{{Pediatria.NombreMadre}}</span></div>
+                    </div>
+                    <div class="col-xs-3 form-group">
+                        <label class="control-label">Fecha de Nacimiento:&nbsp;&nbsp;</label>
+                        <div><span>{{Pediatria.FechaNacimientoMadre}}</span></div>
+                    </div>
+                    <div class="col-xs-3 form-group">
+                        <label for="TipoSangrePadreID">Tipo Sangre:&nbsp;&nbsp;</label>
+                        <div><span>{{Pediatria.TipoSangreMadre}}</span></div>
+                    </div>
+                    <div class="col-xs-3 form-group">
+                        <label for="ProfesionPadre">Profesion:</label>
+                        <div><span>{{Pediatria.ProfesionMadre}}</span></div>
+                    </div>
+                </div>
+                {{#if Pediatria.ComplicacionesPreNatales}}
+                <div class="col-xs-12">
+                    <label for="ComplicacionesPreNatales">Complicaciones:</label>
+                    <div><span style="white-space: pre-line;">{{Pediatria.ComplicacionesPreNatales}}</span></div>
+                </div>
+                {{/if}}
+                {{#if Pediatria.ComentariosPreNatales}}
+                <div class="col-xs-12">
+                    <label for="ComentariosPreNatales">Comentarios:</label>
+                    <div><span style="white-space: pre-line;">{{Pediatria.ComentariosPreNatales}}</span></div>
+                </div>
+                {{/if}}
+                
+                <div class="col-xs-12">
+                    <p style="padding-top:5px;margin-top:15px;margin-bottom:15px;border-top:1px solid lightgrey;"><strong>PERINATALES:</strong></p>
+                </div>
+                <div class="row col-xs-12">
+                    {{#if Pediatria.TipoParto}}
+                <div class="col-xs-3 form-group">
+                    <label for="TipoParto">Tipo de Parto:</label>
+                    <div><span style="white-space: pre-line;">{{Pediatria.TipoParto}}</span></div>
+                </div>
+                {{/if}}
+                {{#if Pediatria.VacunaHepatitisB}}
+                <div class="col-xs-3 form-group">
+                    <label for="TipoParto">Vacuna Hepatitis B:</label>
+                    <div><span style="white-space: pre-line;">{{Pediatria.VacunaHepatitisB}}</span></div>
+                </div>
+                {{/if}}
+                {{#if Pediatria.RPBF}}
+                <div class="col-xs-2 form-group">
+                    <label for="TipoParto">RPBF:</label>
+                    <span>Si.</span>
+                </div>
+                {{/if}}
+                {{#if Pediatria.ProfilaxisOptica}}
+                <div class="col-xs-2 form-group">
+                    <label for="TipoParto">Profilaxis Optica:</label>
+                    <span>Si.</span>
+                </div>
+                {{/if}}
+                {{#if Pediatria.VitaminaK}}
+                <div class="col-xs-2 form-group">
+                    <label for="TipoParto">Vitamina K:</label>
+                    <span>Si.</span>
+                </div>
+                {{/if}}
+                </div>
+                
+                <div class="row col-xs-12">
+                    {{#if Pediatria.Peso}}
+                    <div class="col-xs-2 form-group">
+                        <label for="TipoParto">Peso:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.Peso}}</span></div>
+                    </div>
+                    {{/if}}
+                    {{#if Pediatria.Talla}}
+                    <div class="col-xs-2 form-group">
+                        <label for="TipoParto">Talla:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.Talla}}</span></div>
+                    </div>
+                    {{/if}}
+                    {{#if Pediatria.PerimetroCefalico}}
+                    <div class="col-xs-2 form-group">
+                        <label for="TipoParto">Perímetro Cefálico:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.PerimetroCefalico}}</span></div>
+                    </div>
+                    {{/if}}
+                    {{#if Pediatria.PerimetroAbdominal}}
+                    <div class="col-xs-2 form-group">
+                        <label for="TipoParto">Perímetro Abdominal:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.PerimetroAbdominal}}</span></div>
+                    </div>
+                    {{/if}}
+                    {{#if Pediatria.Capurro}}
+                    <div class="col-xs-2 form-group">
+                        <label for="TipoParto">Capurro:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.Capurro}}</span></div>
+                    </div>
+                    {{/if}}
+                    {{#if Pediatria.Capurro}}
+                    <div class="col-xs-2 form-group">
+                        <label for="TipoParto">APGAR 1-5:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.APGAR1}}</span>&nbsp;&nbsp;<span style="white-space: pre-line;">{{Pediatria.APGAR5}}</span></div>
+                    </div>
+                    {{/if}}
+                </div>
+                
+                {{#if Pediatria.ComplicacionesPeriNatales}}
+                    <div class="col-xs-12">
+                        <label for="TipoParto">Complicaciones Perinatales:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.ComplicacionesPeriNatales}}</span></div>
+                    </div>
+                {{/if}}
+                
+                <div class="col-xs-12">
+                    <p style="padding-top:5px;margin-top:20px;margin-bottom:20px;border-top:1px solid lightgrey;"><strong>POSTNATALES:</strong></p>
+                </div>
+                
+                {{#if Pediatria.ComentariosEscalaDenver}}
+                    <div class="col-xs-12" style="margin-bottom:15px;">
+                        <label for="TipoParto">Alimentación:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.ComentariosEscalaDenver}}</span></div>
+                    </div>
+                {{/if}}
+                
+                {{#if Pediatria.ValoracionNeurologico}}
+                    <div class="col-xs-12" style="margin-bottom:15px;">
+                        <label for="TipoParto">Valoración Neurológica:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.ValoracionNeurologico}}</span></div>
+                    </div>
+                {{/if}}
+                
+                {{#if Pediatria.TamisajeMetabolico}}
+                    <div class="col-xs-12" style="margin-bottom:15px;">
+                        <label for="TipoParto">Tamizaje Metabólico y Auditivo:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.TamisajeMetabolico}}</span></div>
+                    </div>
+                {{/if}}
+                {{#if Pediatria.ComentariosPostNatales}}
+                    <div class="col-xs-12" style="margin-bottom:15px;">
+                        <label for="TipoParto">Comentarios:</label>
+                        <div><span style="white-space: pre-line;">{{Pediatria.ComentariosPostNatales}}</span></div>
+                    </div>
+                {{/if}}
+            </div>
+            <hr>
+        {{/if}}
+        
+        
+        
+        
+        <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+        <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+    </body>
+</html>
+
+<script>
+    var now = moment().locale("es").format('dddd D MMMM YYYY');
+    
+    document.getElementById("DatePrint").innerHTML = now;
+    
+</script>

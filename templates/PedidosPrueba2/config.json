@@ -1,0 +1,24 @@
+{
+    "shortid": "SJwL5i_DW",
+    "recipe": "phantom-pdf",
+    "engine": "handlebars",
+    "modificationDate": {
+        "$$date": 1504557604832
+    },
+    "_id": "nl6vuPOHTpy352zs",
+    "phantom": {
+        "headerHeight": "3cm",
+        "footerHeight": "5cm"
+    },
+    "data": {
+        "shortid": "BkDVhNEAg"
+    },
+    "resources": {
+        "items": [
+            {
+                "shortid": "BkDVhNEAg",
+                "entitySet": "data"
+            }
+        ]
+    }
+}

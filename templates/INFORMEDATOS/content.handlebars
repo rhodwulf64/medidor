@@ -1,0 +1,62 @@
+<html>
+    <head>    
+        <meta charset="utf-8" />
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+        <style>
+            hr {
+                margin-top:10px !important;
+                border-top-color: #{{ColorLines}} !important;
+            }
+            
+            .Fecha {
+                margin-top: 5px;
+                font: 11px tahoma !important;
+                text-align: left;
+            }
+            
+            .Paciente {
+                margin-top: 20px;
+                font: 15px tahoma !important;
+                text-align: left;
+            }
+            
+            .contenido {
+                margin-top: 20px;
+            }
+            
+            .firma {
+                font: 15px tahoma !important;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div style="min-width:100%;">
+            <div class="Fecha"><strong>{{Informe.Ciudad}}&nbsp; <span id="DatePrint"></span></strong></div>
+        </div>
+        
+        <div class="Paciente">
+                {{#unless PrinterHeader}}
+                <div><strong>Doctor:</strong>&nbsp; {{DoctorName}}</div>
+                {{/unless}}
+                <div><strong>Paciente:</strong>&nbsp; {{PatientName}}</div>
+                <hr>
+        </div>
+        
+        <div class="contenido">
+            {{#if Informe.DetalleInforme}}
+                {{{Informe.DetalleInforme}}}
+            {{/if}}
+        </div>
+        
+        <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+        <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+    </body>
+</html>
+
+<script>
+    var now = moment().format('DD/MM/YYYY hh:mm A')
+
+    document.getElementById("DatePrint").innerHTML = now;
+</script>

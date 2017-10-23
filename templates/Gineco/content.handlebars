@@ -1,0 +1,255 @@
+<html>
+    <head>    
+        <meta charset="utf-8" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+        <style>
+            body {
+                font: 11px "Tahoma" !important;
+            }
+            
+            hr {
+                border-top-color: #{{ColorLines}} !important;
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        <span>&nbsp;</span>
+        
+        <div class="row">
+            <div class="col-xs-6">
+                <h4>Antecedentes Gineco-Obstétricos</h4>
+            </div>
+            <div class="col-xs-6" style="padding-top:15px">
+                <span class="pull-right"><strong>Fecha:&nbsp; <span id="DatePrint"></span></strong></span>
+            </div>
+        </div>
+        <hr>
+        <div width="100%">
+                {{#unless PrinterHeader}}
+                <div><h5><strong>Doctor:</strong>&nbsp; {{DoctorName}} </h5></div>
+                {{/unless}}
+                <div><h5><strong>Paciente:</strong>&nbsp; {{PatientName}} </h5></div>
+                <hr>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>Ginecológicos</h4>
+            </div>
+            
+            {{#if Menarquia}}
+                <div class="col-xs-3" style="margin-bottom:10px;">
+                    <label>Menarquia:</label>
+                    <div class="col-md-12">
+                        <span style="white-space: pre-line;">{{Menarquia}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            
+            {{#if IVidaSexual}}
+                <div class="col-xs-3" style="margin-bottom:10px;">
+                    <label>Inicio Vida Sexual:</label>
+                    <div class="col-md-12">
+                        <span style="white-space: pre-line;">{{IVidaSexual}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            
+            {{#if ParejasSexuales}}
+                <div class="col-xs-3" style="margin-bottom:10px;">
+                    <label>Parejas Sexuales:</label>
+                    <div class="col-md-12">
+                        <span style="white-space: pre-line;">{{ParejasSexuales}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            
+            {{#if PlanificacionFamiliar}}
+                <div class="col-xs-3" style="margin-bottom:10px;">
+                    <label>Planificación Familiar:</label>
+                    <div class="col-md-12">
+                        <span style="white-space: pre-line;">{{PlanificacionFamiliar}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            
+            {{#if ETS}}
+                <div class="col-xs-3" style="margin-bottom:10px;">
+                    <label>ETS:</label>
+                    <div class="col-md-12">
+                        <span style="white-space: pre-line;">{{ETS}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            
+            {{#if CiclosMenstruales}}
+                <div class="col-xs-3" style="margin-bottom:10px;">
+                    <label>Ciclos Menstruales:</label>
+                    <div class="col-md-12">
+                        <span style="white-space: pre-line;">{{CiclosMenstruales}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            
+            {{#if Papanicolao}}
+                <div class="col-xs-3" style="margin-bottom:10px;">
+                    <label>Papanicolau:</label>
+                    <div class="col-md-12">
+                        <span style="white-space: pre-line;">{{Papanicolao}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            
+            {{#if Mamografia}}
+                <div class="col-xs-3" style="margin-bottom:10px;">
+                    <label>Mamografía:</label>
+                    <div class="col-md-12">
+                        <span style="white-space: pre-line;">{{Mamografia}}</span>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-6">
+                {{#if Menopausia}}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="control-label">Menopausia:</label>
+                                    <div class="form-group">
+                                        <span style="white-space: pre-line;">{{Menopausia}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Densitometría:</label>
+                                    <div class="form-group">
+                                        <span style="white-space: pre-line;">{{Densitometria}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+            
+            {{#if Colposcopia}}
+                <div class="col-xs-6">
+                <label class="control-label">Colposcopía</label>
+                <div class="form-group">
+                    <span style="white-space: pre-line;">{{Colposcopia}}</span>
+                </div>
+            </div>
+            {{/if}}
+            
+        </div>
+
+        <div class="row">
+            {{#if HPV}}
+                <div class="col-xs-3">
+                    <label class="control-label">HPV:</label>
+                    <div class="form-group">
+                        <span style="white-space: pre-line;">{{HPV}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            
+            {{#if Patologias}}
+                <div class="col-xs-9">
+                    <label class="control-label">Patologías:</label>
+                    <div class="form-group">
+                        <span style="white-space: pre-line;">{{Patologias}}</span>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+
+        <h4>Obstétricos</h4>
+
+        <div class="row">
+            {{#if Gestas}}
+                <div class="col-xs-2">
+                    <label class="control-label">Gestas:</label>
+                    <div class="form-group">
+                        <span style="white-space: pre-line;">{{Gestas}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            {{#if Partos}}
+                <div class="col-xs-2">
+                    <label class="control-label">Partos:</label>
+                    <div class="form-group">
+                        <span style="white-space: pre-line;">{{Partos}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            {{#if Abortos}}
+                <div class="col-xs-2">
+                    <label class="control-label">Abortos:</label>
+                    <div class="form-group">
+                        <span style="white-space: pre-line;">{{Abortos}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            {{#if Cesareas}}
+                <div class="col-xs-2">
+                    <label class="control-label">Cesáreas:</label>
+                    <div class="form-group">
+                        <span style="white-space: pre-line;">{{Cesareas}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            {{#if HijosVivos}}
+                <div class="col-xs-2">
+                    <label class="control-label">Hijos Vivos:</label>
+                    <div class="form-group">
+                        <span style="white-space: pre-line;">{{HijosVivos}}</span>
+                    </div>
+                </div>
+            {{/if}}
+            {{#if FUM}}
+                <div class="col-xs-2">
+                    <label class="control-label">FUM:</label>
+                    <div class="form-group">
+                        <span style="white-space: pre-line;">{{FUM}}</span>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+
+        <div class="row">
+            {{#if EmbarazosPrevios}}
+                <div class="form-group col-xs-12">
+                    <label class="control-label">Embarazos Previos:</label>
+                    <div class="form-group">
+                        <span style="white-space: pre-line;">{{EmbarazosPrevios}}</span>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+
+        <div class="row">
+            {{#if Embarazo}}
+                <div class="col-xs-12">
+                    <label class="control-label">Embarazo:</label><span> Si</span>
+                </div>
+            {{/if}}
+        </div>
+        <div width="100%" style="text-align: center;padding-top:5px">
+             <h4><strong><pre style="border: none;">{{DoctorFirma}}</pre></strong> </h4>
+        </div>
+        <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+        <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+    </body>
+</html>
+
+<script>
+    var now = moment().format('DD/MM/YYYY hh:mm A')
+
+    document.getElementById("DatePrint").innerHTML = now;
+</script>

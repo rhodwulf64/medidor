@@ -1,0 +1,249 @@
+<html>
+    <head>    
+        <meta charset="utf-8" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://webmedico.net/Scripts/moment.js"></script>
+        <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+        <style>
+            body {
+                font: 10px "Tahoma" !important;
+            }
+            
+            hr {
+                border-top-color: #{{ColorLines}} !important;
+                max-width:;
+                min-width:;
+                min-height:;
+                max-height:;
+            }
+            
+            
+            table.table-striped th, table.table-bordered th, table.table-striped td, table.table-bordered td {
+              font-size : 10px;
+              font-family : Tahoma;
+            }
+            
+            .recetalbl {
+                font-weight: bold;
+                padding-left:5mm;
+            }
+            
+            .recetalbl2 {
+                font-weight: bold;
+                padding-left:5mm;
+                padding-top:10mm !important;
+            }
+            
+            .receta {
+                min-width:203mm;
+                max-width:203mm;
+                min-height:143mm;
+                max-height:143mm;
+                padding-top:5mm;
+            }
+            
+            .receta-side {
+                min-width:100%;
+                max-width:100%;
+                min-height:138mm;
+                max-height:138mm;
+            }
+            
+            .dontgrow {
+                display: inline-block;
+                white-space:pre-line;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                max-height: 90mm;
+            }
+            
+            .dontgrow2 {
+                display: inline-block;
+                white-space:pre-line;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                max-height: 115mm;
+            }
+            
+            .firma {
+                width: 100%;
+                padding-left: 5mm;
+                text-align: center !important;
+                display: inline-block;
+                white-space:pre-line;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                max-height: 10mm;
+            }
+            
+            .diagnostico {
+                display: inline-block;
+                white-space:pre-line;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                max-height: 9mm;
+            }
+            
+            .footerPrescription {
+                text-align: center;
+                font: 10px tahoma;
+                padding-left: 5mm;
+                padding-top: 2mm;
+                min-height:21mm;
+                max-height:21mm;
+                display: inline-block;
+                white-space:pre-line;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                width:100%;
+            }
+            .imageFooter {
+                float:right;
+                padding-top:2px;
+                padding-right:15px;
+                min-width:30mm;
+                max-width:30mm;
+                max-height:19mm;
+            }
+            
+            .fecha {
+                text-align: right;
+                width: 100%;
+                margin: 0 !important;
+                padding-right: 5mm;
+            }
+            
+            .headerReceta {
+                text-align: left;
+                font: 10px tahoma;
+                max-height:24mm;
+                display: inline-block;
+                white-space:pre-line;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+            }
+            
+            .detalle {
+                display: inline-block;
+                overflow:hidden;
+                max-height: 51mm;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="receta">
+            <div class="receta-side" style="float:left;">
+                <div width="100%" style="border-bottom:1px solid;min-height:24mm;max-height:24mm;">
+                    <div style="width:50%; float:right;padding-right:5mm;">
+                        <img class="pull-right" src="data:image/gif;base64,{{HeaderLogo}}" style="min-height:88px;min-width:45mm;max-height:88px;max-width:45mm;"/>
+                    </div>
+                    <div style="width:50%;padding-left:5mm;">
+                        <p class="headerReceta">{{PrinterHeader}}</p>
+                    </div>
+                </div>
+                
+                <div style="padding-top:5mm;">
+                    <p class="fecha">{{#if Pedido.Ciudad}}{{Pedido.Ciudad}}, a {{else}}Quito, a {{/if}} <span id="DatePrint"></span></p>
+                </div>
+                <div style="padding-top:5mm;">
+                    <span class="recetalbl">Paciente:</span><span>&nbsp;&nbsp;{{PatientName}}</span><br>
+                    
+                    
+                    {{#if Pedido.DetallesPedido}}
+                    <span class="recetalbl">Pedido de {{Pedido.TipodePedido}}</span><br>
+                {{/if}}
+                {{#if Pedido.DetalleOtros}}
+                    <span class="recetalbl">Pedido {{Pedido.TipodePedido}}</span><br>
+                {{/if}}
+                    
+                    <span class="recetalbl">Diagnostico:</span><pre style="border: none;"><span style=" font: 8px tahoma;">&nbsp;&nbsp;{{Pedido.Diagnostico}}</span></pre><br>
+                    {{#if Pedido.Observaciones}}
+                            <label class="recetalbl">Observaciones:&nbsp;&nbsp;</label><span style="white-space: pre-line;">{{Pedido.Observaciones}}</span><br>
+                    {{/if}}
+                    
+                    
+                </div>
+                {{#if Pedido.DetallesPedido}}
+                <br><span class="recetalbl2">Detalles del pedido:</span><span></span><br><br>
+                <div style="min-height:65mm;max-height:65mm;width=100%;">
+                    <div class="detalle">
+                        <table class="table table-condensed table-striped table-bordered" style="margin-left:5mm;width: 95% !important">
+                            <thead>
+                                <tr>
+                                    <th><span class="text">Nombre</span></th>
+                                    {{#if Pedido.DetallesPedido.[8].Producto}}
+                                        <th><span class="text">Nombre</span></th>
+                                    {{/if}}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        {{#firstSeven Pedido.DetallesPedido}}
+                                    
+                                            {{Producto}}<br>
+                                    
+                                        {{/firstSeven}}
+                                    </td>
+                                    {{#if Pedido.DetallesPedido.[8].Producto}}
+                                        <td>
+                                            {{#lastEight Pedido.DetallesPedido}}
+                                        
+                                                {{Producto}}<br>
+                                        
+                                            {{/lastEight}}
+                                        </td>
+                                    {{/if}}
+                                </tr>
+                            </tbody>
+                            
+                            
+                            
+                        </table>
+                        
+                    </div>
+                </div>
+                {{/if}}
+                    
+                    {{#if Pedido.DetalleOtros}}
+                <br><span class="recetalbl2">Detalles del pedido:</span>&nbsp;&nbsp;<pre style="margin-left: 15px; margin-top: -5px;  font-size : 10px; border: 0px solid;"><span>{{Pedido.DetalleOtros}}</span></pre><br><br>
+            
+            {{/if}}
+                    
+                    {{#if DoctorCedula}}
+                    <div style="min-height:12mm;max-height:12mm;width=100%;padding-top:2mm;">
+                        <span class="firma">{{DoctorCedula}}</span>
+                    </div>
+                    {{/if}}
+                    {{#if Pedido.EnviarPedido}}
+                    <div>
+                        <p class="fecha">Pedido Electrónico SIMEC Nº {{Pedido.EnvioID}}</p>
+                    </div>
+                    {{/if}}
+                
+                <div width="100%" style="border-top:1px solid;min-height:21mm;max-height:21mm;">
+                    {{#if FooterLogo}}
+                    <div class="imageFooter">
+                        <img class="pull-right" src="data:image/gif;base64,{{FooterLogo}}" style="max-width:113px;max-height:45px;min-width:113px;min-height:45px;"/>
+                    </div>
+                    {{/if}}
+                    <div style="{{#if FooterLogo}}width:80%;{{/if}}max-height:20mm;">
+                        <p class="footerPrescription">{{PrinterFooter}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+        <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+    </body>
+</html>
+
+<script>
+    var now = moment().locale("es").format('dddd D MMMM YYYY');
+    
+    document.getElementById("DatePrint").innerHTML = now;
+    
+</script>

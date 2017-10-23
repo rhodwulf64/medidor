@@ -1,0 +1,236 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://webmedico.net/Scripts/moment.js"></script>
+    <script src="https://webmedico.net/Scripts/moment-with-locales.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
+    <style>
+    body {
+            font: 11px "Tahoma" !important;
+        }
+        
+        hr {
+            border-top-color: #{{ColorLines}}!important;
+    }
+    table.table-striped th,
+    table.table-bordered th,
+    table.table-striped td,
+    table.table-bordered td {
+        font-size: 10px;
+        font-family: Tahoma;
+    }
+    </style>
+</head>
+
+<body>
+    <span>&nbsp;</span>
+    <div class="row">
+        <div class="col-xs-6">
+            <h4>Evolución</h4>
+        </div>
+        <div class="col-xs-6" style="padding-top:15px">
+            <span class="pull-right">
+                <strong>Fecha:&nbsp;
+                    <span id="DatePrint"></span>
+                </strong>
+            </span>
+        </div>
+    </div>
+
+    <hr>
+    <div width="100%">
+        {{#unless PrinterHeader}}
+        <div>
+            <h5>
+                <strong>Doctor:</strong>&nbsp; {{DoctorName}} </h5>
+        </div>
+        {{/unless}}
+        <div>
+            <h5><strong>Paciente:</strong>&nbsp; {{PatientName}} </h5>
+            <h5 style="float:right; margin-top:-25px;"><strong>Edad:</strong>&nbsp; {{Edad}} </h5>
+        </div>
+        <hr>
+    </div>
+
+    {{#if Evolucion}}
+    <div class="row">
+
+        <div class="col-xs-12" style="padding-top:5px;margin-bottom:20px;">
+            <div>
+                <p>
+                    <strong>FECHA DE CONSULTA: {{Evolucion.SoapDate}}</strong>
+                </p>
+            </div>
+            <div class="row">
+                {{#if Evolucion.FC}}
+                <div class="col-xs-4">
+                    <label>FC:</label>
+                    <span>
+                        {{Evolucion.FC}}
+                    </span>
+                </div>
+                {{/if}} {{#if Evolucion.FR}}
+                <div class="col-xs-4">
+                    <label>FR:</label>
+                    <span>
+                        {{Evolucion.FR}}
+                    </span>
+                </div>
+                {{/if}} {{#if Evolucion.SO2}}
+                <div class="col-xs-4">
+                    <label>SO2:</label>
+                    <span>
+                        {{Evolucion.SO2}}
+                    </span>
+                </div>
+                {{/if}} {{#if Evolucion.TA}}
+                <div class="col-xs-4">
+                    <label>TA:</label>
+                    <span>
+                        {{Evolucion.TA}}
+                    </span>
+                </div>
+                {{/if}} {{#if Evolucion.Temp}}
+                <div class="col-xs-4">
+                    <label>Temperatura:</label>
+                    <span>
+                        {{Evolucion.Temp}}
+                    </span>
+                </div>
+                {{/if}} {{#if Evolucion.Peso}}
+                <div class="col-xs-4">
+                    <label>Peso (kg):</label>
+                    <span>
+                        {{Evolucion.Peso}}
+                    </span>
+                </div>
+                {{/if}} {{#if Evolucion.Talla}}
+                <div class="col-xs-4">
+                    <label>Talla:</label>
+                    <span>
+                        {{Evolucion.Talla}}
+                    </span>
+                </div>
+                {{/if}} {{#if Evolucion.IMC}}
+                <div class="col-xs-4">
+                    <label>IMC:</label>
+                    <span>
+                        {{Evolucion.IMC}}
+                    </span>
+                </div>
+                {{/if}} {{#if Evolucion.PerimetroCefalico}}
+                <div class="col-xs-4">
+                    <label>Perímetro Cefálico:</label>
+                    <span>
+                        {{Evolucion.PerimetroCefalico}}
+                    </span>
+                </div>
+                {{/if}}
+            </div>
+            {{#if Evolucion.EvolucionSoap}}
+            <label style="margin-top:10px;">EVOLUCIÓN SOAP:</label>
+
+            {{#if Evolucion.Subjetivo}}
+            <div class="row col-xs-12" style="margin-top:10px; margin-left:5px;">
+                <label>SUBJETIVO - ANAMNESIS:</label>
+                <div>
+                    <span style="white-space: pre-line">{{Evolucion.Subjetivo}}</span>
+                </div>
+            </div>
+            {{/if}} {{#if Evolucion.Objetivo}}
+            <div class="row col-xs-12" style="margin-top:10px; margin-left:5px;">
+                <label>OBJETIVO - EXAMEN FISICO:</label>
+                <div>
+                    <span style="white-space: pre-line">{{Evolucion.Objetivo}}</span>
+                </div>
+            </div>
+            {{/if}} {{#if Evolucion.Analisis}}
+            <div class="row col-xs-12" style="margin-top:10px; margin-left:5px;">
+                <label>ANALISIS - DIAGNOSTICO:</label>
+                <div>
+                    <span style="white-space: pre-line">{{Evolucion.Analisis}}</span>
+                </div>
+            </div>
+            {{/if}} 
+            
+            {{#if Evolucion.Plan}}
+            <div class="row col-xs-12" style="margin-top:10px; margin-left:5px;">
+                <label>PLAN - TRATAMIENTO:</label>
+                <div>
+                    <span style="white-space: pre-line">{{Evolucion.Plan}}</span>
+                </div>
+            </div>
+            {{/if}} 
+             {{#if Evolucion.Observacion}}
+            <div class="row col-xs-12" style="margin-top:10px; margin-left:5px;">
+                <label>OBSERVACIONES:</label>
+                <div>
+                    <span style="white-space: pre-line">{{Evolucion.Observacion}}</span>
+                </div>
+            </div>
+            {{/if}} 
+            {{else}}
+            <label style="margin-top:10px;">EVOLUCIÓN:</label>
+            <div class="row col-xs-12" style="margin-top:10px;">
+                <div>
+                    <span style="white-space: pre-line">{{Evolucion.EvolucionDetalle}}</span>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+        <div style="padding-top:20px;" class="container">
+             <label>DIAGNÓSTICOS:</label>
+            <table class="table table-bordered table-fit">
+                <thead>
+                    <tr>
+                        <th class="text-center">Codigo</th>
+                        <th class="text-center">CIE-10</th>
+                        <th class="text-center">Presuntivo</th>
+                        <th class="text-center">Definitivo</th>
+                        <th class="text-center">Descripcion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each Caracteristicas}}
+                    <tr>
+                        <td align="center"> {{Codigo}}</td>
+                        <td align="center"> {{Descriptor}}</td>
+                        <td align="center"> {{#if presuntivo}} <span>✓</span>{{/if}}</td>
+                        <td align="center"> {{#if definitivo}} <span>✓</span>{{/if}}</td>
+                        <td align="center"> {{descripcion}}</td>
+
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {{/if}} {{#if DoctorCedula}}
+    <div width="100%" style="text-align:center;position: absolute;left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; bottom:0;">
+
+        <h4>
+            <strong>
+                <pre style="border: none;">{{DoctorCedula}}</pre>
+            </strong>
+        </h4>
+
+    </div>
+    {{/if}}
+    <img src="data:image/gif;base64,{{HeaderLogo}}" style="display:none;" />
+    <img src="data:image/gif;base64,{{FooterLogo}}" style="display:none;" />
+</body>
+
+</html>
+
+<script>
+    var now = moment().locale("es").format('dddd D MMMM YYYY');
+    
+    document.getElementById("DatePrint").innerHTML = now;
+    
+</script>
