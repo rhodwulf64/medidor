@@ -1,0 +1,1000 @@
+   81  cd ..
+   82  ls
+   83  cd SimecReports/
+   84  ls
+   85  git status
+   86  git commit -am "nose"
+   87  git pull
+   88  git diff
+   89  git status
+   90  git merge
+   91  git merge abort
+   92  git merge --abort
+   93  git status
+   94  pwd
+   95  ls
+   96  cd data
+   97  ls
+   98  ls -l
+   99  cd ..
+  100  git stash
+  101  git pull
+  102  git checkout --theirs data/settings
+  103  git status
+  104  git add merge
+  105  git add -am merge
+  106  git add -A 
+  107  git status
+  108  git pull
+  109  git commit "merge"
+  110  git merge --abort
+  111  git status
+  112  git checkout --theirs data/settings
+  113  git status
+  114  git pull
+  115  git checkout --theirs data/settings
+  116  git commit "merge"
+  117  git commit -i data/settings 
+  118  git pull
+  119  pwd
+  120  ls
+  121  cd data/
+  122  ls
+  123  cd templates/
+  124  ls
+  125  clear
+  126  cd ..
+  127  npm start
+  128  pwd
+  129  ls
+  130  vi prod.config.json
+  131  npm start
+  132  npm start --production
+  133  pwd
+  134  cd SimecReports/
+  135  npm start --production
+  136  sudo npm install pm2 -g
+  137  sudo pm2 start npm -- start --production
+  138  sudo pm2 startup
+  139  sudo pm2 save
+  140  ps -aux | grep jsreport
+  141  ps -aux
+  142  reboot
+  143  sudo reboot
+  144  ps -aux
+  145  dat
+  146  date
+  147  sudo dpkg-reconfigure tzdata
+  148  date
+  149  sudo dpkg-reconfigure tzdata
+  150  date
+  151  sudo dpkg-reconfigure tzdata
+  152  date
+  153  sudo dpkg-reconfigure tzdata
+  154  date
+  155  sudo dpkg-reconfigure tzdata
+  156  date
+  157  reboot
+  158  date
+  159  sudo reboot
+  160  date
+  161  exit
+  162  cd SimecReports/
+  163  ls
+  164  cd data/
+  165  ls
+  166  cd templates/
+  167  ls
+  168  cd PersonalH/
+  169  ls
+  170  vi footer.handlebars 
+  171  ls
+  172  vi header.handlebars 
+  173  pwd
+  174  ls
+  175  cd ..
+  176  ls
+  177  vd /home/jgarcia/
+  178  ks
+  179  ls
+  180  cd /home/jgarcia/
+  181  ls
+  182  cd SimecReports/
+  183  ls
+  184  nano prod.config.json
+  185  ps -aux
+  186  sudo pm2 start npm -- start --production
+  187  sudo pm2 start npm --start --production
+  188  sudo pm2 start npm -- start --production
+  189  sudo pm2 startup
+  190  sudo pm2 save
+  191  ls
+  192  vi package.json 
+  193  sudo pm2 start npm -- start:prod
+  194  sudo pm2 startup
+  195  sudo pm2 save
+  196  vi /home/jgarcia/.pm2/dump.pm2 
+  197  vi /etc/init.d/pm2-init.sh 
+  198  vi /home/jgarcia/.pm2/dump.pm2 
+  199  rm /home/jgarcia/.pm2/dump.pm2 
+  200  sudo rm /home/jgarcia/.pm2/dump.pm2 
+  201  sudo pm2 start npm -- start:prod
+  202  sudo pm2 startup
+  203  sudo pm2 save
+  204  vi /home/jgarcia/.pm2/dump.pm2 
+  205  sudo restart
+  206  sudo reboot
+  207  ps -aux
+  208  ls
+  209  pwd
+  210  ls
+  211  vi npm-debug.log 
+  212  cd SimecReports/
+  213  ls
+  214  vi logs/reporter.log 
+  215  vi prod.config.json
+  216  cd data/
+  217  ls
+  218  nano license-key.txt
+  219  ls
+  220  vi license-key.txt 
+  221  cd ..
+  222  ls
+  223  forever list
+  224  vi prod.config.json 
+  225  vi package.json 
+  226  npm run prod
+  227  sudo rm /home/jgarcia/.pm2/dump.pm2
+  228  vi package.json 
+  229  ls
+  230  vi package.json 
+  231  npm run prod
+  232  forever list
+  233  kill -9 3948
+  234  forever list
+  235  forever stop
+  236  forever stop server.js
+  237  forever list
+  238  npm run prod
+  239  sudo reboot
+  240  forever list
+  241  cd SimecReports/
+  242  ls
+  243  vi /home/jgarcia/.pm2/dump.pm2
+  244  forever list
+  245  ls
+  246  vi logs/reporter.log 
+  247  ls
+  248  sudo npm uninstall pm2
+  249  sudo npm uninstall pm2 -g
+  250  ls
+  251  su rm /home/jgarcia/.pm2
+  252  su rm -r /home/jgarcia/.pm2
+  253  su rm -rf /home/jgarcia/.pm2
+  254  sudo rm -rf /home/jgarcia/.pm2
+  255  reboot
+  256  sudo reboot
+  257  forever list
+  258  cd SimecReports/
+  259  npm run prod
+  260  ps -aux 
+  261  forever list
+  262  tail -f logs/reporter.log 
+  263  vi logs/reporter.log 
+  264  vi package.json
+  265  forever stop server.js
+  266  forever list
+  267  npm run prod
+  268  tail -f logs/reporter.log 
+  269  sudo reboot
+  270  ps -aux
+  271  sudo npm install pm2 -g
+  272  cd SimecReports/
+  273  sudo pm2 start npm -- run prod
+  274  sudo pm2 startup
+  275  sudo pm2 save
+  276  vi /home/jgarcia/.pm2/dump.pm2 
+  277  sudo reboot
+  278  vi /home/jgarcia/.pm2/dump.pm2
+  279  sudo reboot
+  280  forever list
+  281  ls
+  282  forever list
+  283  cd SimecReports/
+  284  ps -aux
+  285  npm uninstall pm2 -g
+  286  sudo npm uninstall pm2 -g
+  287  reboot
+  288  sudo reboot
+  289  cd SimecReports/
+  290  ps -aux
+  291  ifconfig -a
+  292  sudo rm -rf /home/jgarcia/.pm2
+  293  ls -l
+  294  vi package.json 
+  295  crontab -u jgarcia -e
+  296  pwd
+  297  ls
+  298  crontab -u jgarcia -e
+  299  cd /usr/local/bin/
+  300  ls
+  301  cd ..
+  302  crontab -u jgarcia -e
+  303  sudo npm install -g forever
+  304  crontab -u jgarcia -e
+  305  crontab -u jgarcia -l
+  306  sudo reboot
+  307  forever list
+  308  vi /home/jgarcia/.forever/_2gL.log
+  309  crontab -u jgarcia -e
+  310  reboot
+  311  sudo reboot
+  312  vi /home/jgarcia/.forever/_2gL.log
+  313  forever list
+  314  ps -aux
+  315  ps -aux | grep server
+  316  kill -9 1906
+  317  sudo kill -9 1906
+  318  ps -aux | grep server
+  319  /usr/bin/forever list
+  320  ps -aux | grep server
+  321  kill -9 2155
+  322  sudo kill -9 2155
+  323  ps -aux | grep server
+  324  cd SimecReports/
+  325  ls
+  326  cd data/
+  327  ls
+  328  cd templates/
+  329  ls
+  330  cp PersonalH/header.handlebars Gineco/
+  331  sudo cp PersonalH/header.handlebars Gineco/
+  332  vi Gineco/header.handlebars 
+  333  vi PersonalH/header.handlebars
+  334  ls -l Gineco/
+  335  ls -l PersonalH/
+  336  cd ..
+  337  ls
+  338  vi logs/reporter.log 
+  339  reboot
+  340  sudo reboot
+  341  date
+  342  cd SimecReports/data/
+  343  cd ..
+  344  vi logs/reporter.log 
+  345  vi logs/reporter.log
+  346  cd los
+  347  cd logs/
+  348  ls
+  349  ls -l
+  350  du -h
+  351  du -h *
+  352  ls -l
+  353  rm reporter.log
+  354  ls -l
+  355  sudo reboot
+  356  cd SimecReports/
+  357  vi logs/reporter.log 
+  358  vi prod.config.json 
+  359  crontab -u jgarcia -e
+  360  vi package.json 
+  361  ls
+  362  vi dev.config.json 
+  363  vi prod.config.json 
+  364  vi server.js 
+  365  crontab -u jgarcia -e
+  366  crontab -u jgarcia -l
+  367  reboot
+  368  sudo reboot
+  369  ps -aux | grep server
+  370  cd SimecReports/
+  371  ls
+  372  vi logs/reporter.log 
+  373  vi logs/reporter.log 
+  374  vi /home/jgarcia/.forever/_2gL.log 
+  375  vi /var/log/syslog
+  376  sudo npm start --production
+  377  vi server.js 
+  378  sudo reboot
+  379  ps -aux | grep server
+  380  crontab -u jgarcia -e
+  381  sudo reboot
+  382  ps -aux | grep server
+  383  cd SimecReports/
+  384  ls
+  385  vi logs/reporter.log 
+  386  ps -aux | grep server
+  387  sudo kill -9 1955
+  388  ps -aux | grep server
+  389  sudo kill -9 2134
+  390  ps -aux | grep server
+  391  vi data/templates/Gineco/header.handlebars 
+  392  ls data/templates/Gineco/
+  393  vi data/templates/Gineco/config.json 
+  394  ls-l data/templates/Gineco/
+  395  ls -l data/templates/Gineco/
+  396  vi helpe
+  397  vi data/templates/Gineco/helpers.js 
+  398  cp data/templates/PersonalH/footer.handlebars data/templates/Gineco/footer.handlebars
+  399  sudo cp data/templates/PersonalH/footer.handlebars data/templates/Gineco/footer.handlebars
+  400  cd data/templates/Gineco/
+  401  ls -l
+  402  vi footer.handlebars 
+  403  exit
+  404  pwd
+  405  ps -au | grep node
+  406  ps -aux
+  407  exit
+  408  pwd
+  409  dir
+  410  ls
+  411  ls -l
+  412  cd SimecReports/
+  413  ls
+  414  vi dev.config.json 
+  415  vi prod.config.json 
+  416  exit
+  417  ifconfig -a
+  418  ping 192.168.0.1
+  419  ping 192.168.0.2
+  420  ping 192.168.0.3
+  421  ping 192.168.0.5
+  422  sudo apt-get uninstall npm
+  423  sudo apt-get remove npm
+  424  apt-get remove npm
+  425  sudo apt-get install nodejs
+  426  apt-get install nodejs
+  427  sudo apt-get clean
+  428  sudo apt-get -f install
+  429  apt-get install nodejs
+  430  apt-get install npm
+  431  npm install -g jsreport-cli
+  432  jsreport init
+  433  jsreport start
+  434  netstat -atu
+  435  npm start
+  436  node node_modules/jsreport --init
+  437  npm start
+  438  ls -a
+  439  cd SimecReports/
+  440  ls -a
+  441  cd data/
+  442  ls -a
+  443  cd reports
+  444  cd templates/
+  445  ls
+  446  cd..
+  447  cd Anamnesis/
+  448  ls
+  449  git
+  450  git -v
+  451  apt-get install git
+  452  sudo apt-get install git
+  453  sudo apt-get update
+  454  sudo apt-get install git
+  455  sudo dnf install git-all
+  456  sudo apt-get install dnf
+  457  sudo apt-get install git all
+  458  sudo apt-get install git-all
+  459  sudo dnf install git-all
+  460  sudo apt-get install dnf
+  461  clear
+  462  sudo apt-get install git-all
+  463  sudo apt-get install git
+  464  sudo apt-get -f install git
+  465  git clone
+  466  git -v
+  467  sudo apt-get install yum
+  468  git --v
+  469  git --version
+  470  cd..
+  471  cd.
+  472  cd..
+  473  cd ..
+  474  ls
+  475  mkdir Respaldo
+  476  ls
+  477  cp -R templates Respaldo
+  478  cd Respaldo/
+  479  ls
+  480  git init
+  481  git commint
+  482  git commit
+  483  git commit -m 'RespaldoSimec'
+  484  git remote add origin https://github.com/rhodwulf64/Respaldosimec.git
+  485  git push -u origin master
+  486  git remote add origin https://github.com/rhodwulf64/Respaldosimec.git
+  487  git push -u origin master
+  488  git remote add origin git@github.com:rhodwulf64/Respaldosimec.git
+  489  git push -u origin master
+  490  sudo git push -u origin master
+  491  git remote add origin git@github.com:rhodwulf64/Respaldosimec1.git
+  492  clear
+  493  mkdir otro
+  494  cd otro
+  495  cd ..
+  496  jsreport init
+  497  jsreport start
+  498  clear
+  499  git clone otro https://github.com/rhodwulf64/medidor.git
+  500  git clone https://github.com/rhodwulf64/medidor.git otro
+  501  ls
+  502  cp -R templates otro
+  503  cd otro
+  504  ls 
+  505  cd ..
+  506  cd otro
+  507  git push 
+  508  git commit "asdasdwq"
+  509  git checkout
+  510  git commit "asdasdwq"
+  511  clear
+  512  git push 
+  513  git checkout .
+  514  git commit "asdasdwq"
+  515  ls
+  516  git add .
+  517  git commit "asdasdwq"
+  518  git commit --all
+  519  git push 
+  520  git commit "asdasdwq"
+  521  git commit 'asdasd'
+  522  git commit 
+  523  git commit "qweq"
+  524  git commit --all "qweq"
+  525  git commit -all "qweq"
+  526  git add
+  527  git add .
+  528  git commi "qweq"
+  529  git commit "qweq"
+  530  git commit
+  531  git push
+  532  clear
+  533  npm install -g jsreport-cli
+  534  jsreport init
+  535  jsreport start
+  536  jsreport status
+  537  clear
+  538  cd /
+  539  clear
+  540  jsreport init
+  541  sudo apt-get install npm
+  542  sudo apt-get -f install npm
+  543  sudo -s
+  544  ps -aux
+  545  ps -aux | grep jsreport
+  546  ps -aux | grep jsreports
+  547  pwd
+  548  ls
+  549  cd SimecReports/
+  550  ls
+  551  vi prod.config.json 
+  552  sudo npm start --production
+  553  vi npm-debug.log 
+  554  sudo npm start
+  555  node server.js 
+  556  sudo node server.js 
+  557  ls
+  558  vi dev.config.json 
+  559  cd..
+  560  cd ..
+  561  ls
+  562  vi server.js 
+  563  vi jsreport.config.json 
+  564  cd SimecReports/
+  565  ls
+  566  vi dev.config.json 
+  567  vi prod.config.json 
+  568  ls -l
+  569  sudo jsreport start --production
+  570  ps -aux
+  571  ps -aux | grep jsrepor
+  572  npm start 
+  573  cd data/reports 
+  574  pwd
+  575  ls
+  576  cd data
+  577  ls
+  578  cd templates/
+  579  ls
+  580  cd..
+  581  cd ..
+  582  npm start --production
+  583  sudo npm start --production
+  584  sudo npm start
+  585  vi npm-debug.log 
+  586  ls -
+  587  ls -l
+  588  sudo npm start --production
+  589  ls -l
+  590  cd ..
+  591  ls
+  592  ls -l
+  593  owd
+  594  pwd
+  595  ls
+  596  cd RespaldoFinal/
+  597  ls
+  598  ls -l
+  599  cd SimecReports/
+  600  ls
+  601  ls -l
+  602  vi dev.config.json 
+  603  vi prod.config.json 
+  604  exit
+  605  jsreport init
+  606  jsreport start
+  607  npm start
+  608  ping localhost:33259
+  609  ping 191.232.35.44:33259
+  610  ping localhost:5488
+  611  ping 191.232.35.44:5488
+  612  npm start
+  613  php -v
+  614  sudo -s
+  615  clear
+  616  apt -get install apache2
+  617  apt-get install apache2
+  618  apache2 status
+  619  apache2 -status
+  620  apt-get install libapache2-mod-php5 php5 php5-mcrypt
+  621  service apache2 start
+  622  service apache2 status
+  623  ping 191.232.35.44
+  624  clear
+  625  jsreport restart
+  626  jsreport stop
+  627  jsreport init
+  628  jsreport start
+  629  npm install -g jsreport-cli
+  630  jsreport init
+  631  jsreport start
+  632  jsreport -info
+  633  jsreport -help
+  634  jsreport repair
+  635  jsreport configure
+  636  jsreport start
+  637  npm start
+  638  ls
+  639  cd data
+  640  ls
+  641  cd ..
+  642  cd SimecReports/
+  643  ls
+  644  cd data
+  645  ls
+  646  cd scripts
+  647  ls
+  648  cd script
+  649  ls
+  650  cd ..
+  651  ls
+  652  cd ..
+  653  ls
+  654  mkdir RespaldoFinal 
+  655  cp -R SimecReports/ RespaldoFinal/
+  656  ls
+  657  cd SimecReports/
+  658  ls
+  659  cd data
+  660  ls
+  661  cd templates/
+  662  ls
+  663  cd ..
+  664  ls
+  665  cp -R /RespaldoFinal/ Respaldo
+  666  cp -R /RespaldoFinal Respaldo
+  667  cp -R RespaldoFinal Respaldo
+  668  cp -R ./RespaldoFinal Respaldo
+  669  cp -R /home/RespaldoFinal Respaldo
+  670  cd
+  671  ls
+  672  clear
+  673  ls
+  674  cp -R RespaldoFinal/ SimecReports/data/Respaldo
+  675  cd SimecReports/
+  676  cd data/
+  677  cd Respaldo/
+  678  ls
+  679  cp -R RespaldoFinal/ otro
+  680  cd otro
+  681  ls
+  682  git add .
+  683  git commit --all
+  684  git push
+  685  cd .
+  686  cd ..
+  687  ls
+  688  cd RespaldoFinal/
+  689  ls
+  690  cd SimecReports/
+  691  ls
+  692  cd ..
+  693  ls
+  694  cd ..
+  695  ls
+  696  cd otro
+  697  ls
+  698  rm RespaldoFinal/
+  699  rm -r RespaldoFinal/
+  700  ls
+  701  cd ..
+  702  ls
+  703  cp -rf RespaldoFinal/ otro/
+  704  cd otro/
+  705  ls
+  706  cd RespaldoFinal
+  707  ls
+  708  cd SimecReports/
+  709  ls
+  710  cd data
+  711  ls
+  712  cd templates
+  713  ls
+  714  cd ..
+  715  git add .
+  716  git commit --all
+  717  git commmit
+  718  git commit
+  719  git add .
+  720  git commit
+  721  ls
+  722  cd Rest
+  723  cd RespaldoFinal/
+  724  ls
+  725  cd SimecReports/
+  726  ls
+  727  cd ..
+  728  git add -A
+  729  git commit --all
+  730  git push
+  731  git add .
+  732  git commit
+  733  git commit .
+  734  git commit -all
+  735  git commit --all
+  736  cd ..
+  737  mkdir otro2
+  738  cd otro2
+  739  git clone https://github.com/rhodwulf64/medidor.git
+  740  ls
+  741  cd ..
+  742  ls
+  743  cp -rf otro/ otro2/
+  744  cd otro2
+  745  ls
+  746  cp -rf otro/ medidor/
+  747  cd medidor
+  748  ls
+  749  cd RespaldoFinal/
+  750  ls
+  751  cd SimecReports/
+  752  ls
+  753  clear
+  754  ls -a
+  755  cd ..
+  756  cd otro2
+  757  ls
+  758  cd medidor/
+  759  ls
+  760  cd otro/
+  761  ls
+  762  cd RespaldoFinal/
+  763  ls
+  764  cd SimecReports/
+  765  ls
+  766  cd ..
+  767  cd medidor/
+  768  git commit -all
+  769  git commit --all
+  770  git add -A
+  771  git commit --all
+  772  git push
+  773  ls
+  774  zip RespaldoFinal/
+  775  apt-get install zip
+  776  zip RespaldoFinal/
+  777  cd otro
+  778  ls
+  779  cd RespaldoFinal/
+  780  ls
+  781  cd SimecReports/
+  782  ls
+  783  cd ..
+  784  zip hola.zip otro
+  785  ls
+  786  git commit -all
+  787  git commit --all
+  788  git add -A
+  789  git commit --all
+  790  git push
+  791  ls
+  792  zip -R holaWEQ.zip otro
+  793  zip -R hola2.zip otro
+  794  zip -r hola2.zip otro
+  795  git add -A
+  796  git commit --all
+  797  git push
+  798  git pull
+  799  LS
+  800  ls
+  801  cd otro
+  802  ls
+  803  cd RespaldoFinal/
+  804  ls
+  805  cd SimecReports/
+  806  ls
+  807  cd ..
+  808  ls
+  809  mv hola2.zip ../
+  810  cd ..
+  811  ls
+  812  split -b 50M hola2.zip "holaFinal.zip.part"
+  813  ls
+  814  cp -R holaFinal.zip.parta medidor/
+  815  cp -R holaFinal.zip.partaa medidor/
+  816  cp -R holaFinal.zip.partab medidor/
+  817  cp -R holaFinal.zip.partac medidor/
+  818  cd medidor/
+  819  ls
+  820  git add -A
+  821  git commit
+  822  gitgit push --force[A
+  823  git reset HEAD --
+  824  ls
+  825  git add -A
+  826  git commit
+  827  git commit --all
+  828  git push --force
+  829  cd ..
+  830  cd..
+  831  cd ..
+  832  mkdir otroFinal
+  833  git clone https://github.com/rhodwulf64/medidor.git
+  834  cd otroFinal/
+  835  ls
+  836  cd otroFinal/
+  837  cd ..
+  838  ls
+  839  git clone https://github.com/rhodwulf64/medidor.git otroFinal/
+  840  cd ..
+  841  ls
+  842  cd Respaldo/
+  843  cd otro
+  844  ls
+  845  cd RespaldoFinal/
+  846  ls
+  847  cd ..
+  848  cd otro2
+  849  ls
+  850  mkdir otroFinalYa
+  851  git clone https://github.com/rhodwulf64/medidor.git otroFinalYa/
+  852  cp holaFinal.zip.partaa otroFinalYa
+  853  cp holaFinal.zip.partab otroFinalYa
+  854  cp holaFinal.zip.partac otroFinalYa
+  855  cd otroFinalYa/
+  856  ls
+  857  git add -A
+  858  git commit --all
+  859  git push
+  860  npm start
+  861  jsreport start
+  862  npm install -g jsreport-cli
+  863  jsreport init
+  864  jsreport start
+  865  npm start
+  866  forever start server.js 
+  867  npm start
+  868  jsreport init
+  869  jsreport start
+  870  npm start
+  871  npm install
+  872  npm repair
+  873  npm help
+  874  npm reinstall
+  875  npm install
+  876  restart
+  877  npm install -g jsreport-cli
+  878  jsreport init
+  879  jsreport start
+  880  npm start
+  881  clear
+  882  history
+  883  npm start --production
+  884  sudo npm install pm2 -g
+  885  pm2 starts npm -- start --production
+  886  pm2 startup
+  887  pm2 save
+  888  ps -aux | grep jsreport
+  889  ps -aux
+  890  reboot
+  891  ls
+  892  cd SimecReports/
+  893  ls
+  894  history
+  895  forever start server.js
+  896  npm server.js
+  897  npm start server.js
+  898  jsreport
+  899  jsreport repair
+  900  forever start server.js
+  901  npm server.js
+  902  npm start server.js
+  903  npm install
+  904  forever start server.js
+  905  npm server.js
+  906  npm start server.js
+  907  sudo npm start server.js
+  908  jsreport
+  909  jsreport configure
+  910  forever start server.js
+  911  sudo npm start server.js
+  912  npm install -g jsreport-cli
+  913  clear
+  914  npm install -g jsreport-cli
+  915  clear
+  916  sudo npm install -g jsreport-cli
+  917  forever start server.js
+  918  npm start
+  919  sudo -s
+  920  ps -aux
+  921  history
+  922  clear
+  923  history
+  924  npm start
+  925  jsreport start
+  926  jsreport configure
+  927  jsreport init
+  928  jsreport start
+  929  netstat -putona
+  930  npm install forever -g
+  931  sudo npm install forever -g
+  932  forever start server.js
+  933  npm server.js
+  934  npm start server.js
+  935  npm install
+  936  forever start server.js
+  937  npm start
+  938  ls
+  939  nano package.json 
+  940  npm start
+  941  npm start server.js
+  942  npm server.js
+  943  npm start
+  944  nanao server.js 
+  945  nano server.js 
+  946  ls
+  947  nano jsreport.config.json 
+  948  jsreport init
+  949  forever jsreport start
+  950  jsreport start
+  951  jsreport configure
+  952  jsreport init
+  953  jsreport start
+  954  npm start
+  955  node server.js --httpPort 5488
+  956  ps aux | grep node
+  957  kill -9 PID
+  958  killall node
+  959  killall jsreport
+  960  ls
+  961  cd SimecReports/
+  962  ls
+  963  sudo lsof -i :3000
+  964  kill -9 16103
+  965  ps aux | grep node
+  966  kill -9 16109
+  967  kill -9 16395
+  968  kill -9 16401
+  969  kill -9 16716
+  970  kill -9 16722
+  971  kill -9 16792
+  972  kill -9 16798
+  973  kill -9 16849
+  974  kill -9 16855
+  975  kill -9 17185
+  976  kill -9 17191
+  977  kill -9 17462
+  978  ps aux | grep node
+  979  kill -9 17507
+  980  node server.js --httpPort 5488
+  981  ps aux | grep node
+  982  sudo node server.js --httpPort 5488
+  983  ps aux | grep node
+  984  jsreport init
+  985  jsreport start
+  986  sudo jsreport start
+  987  sudo -s
+  988  npm start 
+  989  jsreport start
+  990  ls
+  991  nano jsreport.config.json 
+  992  nano package.json 
+  993  ps aux | grep node
+  994  ps aux | grep jsreport
+  995  npm install -g jsreport-cli
+  996  jsreport init
+  997  t start
+  998  npm start
+  999  ls
+ 1000  nano npm-debug.log 
+ 1001  cd ..
+ 1002  ls
+ 1003  nano package.json 
+ 1004  nano server.js 
+ 1005  ps aux | grep node
+ 1006  ps aux | grep jsreport
+ 1007  jsreport init
+ 1008  jsreport start
+ 1009  npm install -g jsreport-cli
+ 1010  ls
+ 1011  nano jsreport.config.json 
+ 1012  jsreport init
+ 1013  jsreport start
+ 1014  npm start
+ 1015  npm install -g jsreport-cli
+ 1016  node node_modules/jsreport --init
+ 1017  npm start --production
+ 1018  npm start
+ 1019  ls
+ 1020  nano package.json 
+ 1021  npm start --production
+ 1022  nano package.json 
+ 1023  ls
+ 1024  nano jsreport.config.json 
+ 1025  npm start --production
+ 1026  sudo npm start --production
+ 1027  sudo npm start
+ 1028  ls
+ 1029  sudo apt-get remove nodejs
+ 1030  ls
+ 1031  cd node_modules/
+ 1032  ls
+ 1033  cd jsreport/
+ 1034  ls
+ 1035  cd ..
+ 1036  mkdir ReportesSimec
+ 1037  ls
+ 1038  cd ReportesSimec/
+ 1039  sudo apt-get update && sudo apt-get -y upgrade
+ 1040  curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+ 1041  sudo apt-get install -y nodejs
+ 1042  npm -v
+ 1043  sudo npm install -g jsreport-cli
+ 1044  node node_modules/jsreport --init
+ 1045  ls
+ 1046  cd ..
+ 1047  node node_modules/jsreport --init
+ 1048  npm start
+ 1049  node node_modules/jsreport --init
+ 1050  npm start
+ 1051  sudo apt-get update && sudo apt-get -y upgrade
+ 1052  curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+ 1053  sudo apt-get install -y nodejs
+ 1054  npm -v
+ 1055  sudo npm install -g jsreport-cli
+ 1056  node node_modules/jsreport --init
+ 1057  npm start
+ 1058  jsreport start
+ 1059  forever start server.js
+ 1060  forever start
+ 1061  ls
+ 1062  nano server.js 
+ 1063  cd SimecReports/
+ 1064  ls
+ 1065  cd ..
+ 1066  cd node_modules/
+ 1067  ls
+ 1068  cd ..
+ 1069  SimecReports
+ 1070  cd SimecReports
+ 1071  ls
+ 1072  cd node_modules
+ 1073  ls
+ 1074  cd ..
+ 1075  node node_modules/jsreport --init
+ 1076  npm start
+ 1077  sudo npm start
+ 1078  history
+ 1079  clear
+ 1080  history > historia.txt
